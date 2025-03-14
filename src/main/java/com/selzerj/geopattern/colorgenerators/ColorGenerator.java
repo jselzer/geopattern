@@ -1,7 +1,7 @@
 package com.selzerj.geopattern.colorgenerators;
 
-import com.selzerj.geopattern.color.RgbColor;
+import java.awt.Color;
 
 public interface ColorGenerator {
-	RgbColor generate();
+	Color generate();
 }

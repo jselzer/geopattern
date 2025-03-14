@@ -1,7 +1,9 @@
 package com.selzerj.geopattern.colorgenerators;
 
-import com.selzerj.geopattern.color.RgbColor;
+import com.selzerj.geopattern.color.ColorUtil;
 import lombok.AllArgsConstructor;
+
+import java.awt.Color;
 
 @AllArgsConstructor
 public class SimpleColorGenerator implements ColorGenerator {
@@ -9,7 +11,7 @@ public class SimpleColorGenerator implements ColorGenerator {
 	private String htmlColor;
 
 	@Override
-	public RgbColor generate() {
-		return RgbColor.fromHtmlColor(htmlColor);
+	public Color generate() {
+		return ColorUtil.fromHtmlColor(htmlColor);
 	}
 }
