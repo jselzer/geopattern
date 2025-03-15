@@ -4,5 +4,5 @@ import com.selzerj.geopattern.Pattern;
 
 public interface PatternComposer {
 
-	PatternComposer compose(Pattern pattern);
+	void compose(Pattern pattern);
 }

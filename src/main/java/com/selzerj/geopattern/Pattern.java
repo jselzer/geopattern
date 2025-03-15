@@ -1,18 +1,17 @@
 package com.selzerj.geopattern;
 
 import com.selzerj.geopattern.composers.PatternComposer;
-import com.selzerj.geopattern.svg.SvgImage;
+import lombok.Getter;
+import lombok.Setter;
 
 public class Pattern {
 
-	private SvgImage svgImage;
+	@Setter
+	@Getter
+	private Background background;
 
 	public Pattern() {
-		this(new SvgImage());
-	}
 
-	public Pattern(SvgImage svgImage) {
-		this.svgImage = svgImage;
 	}
 
 	public Pattern generateMe(PatternComposer generator) {

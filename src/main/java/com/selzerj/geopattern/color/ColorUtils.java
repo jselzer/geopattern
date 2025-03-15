@@ -5,10 +5,14 @@ import lombok.experimental.UtilityClass;
 import java.awt.Color;
 
 @UtilityClass
-public class ColorUtil {
+public class ColorUtils {
 
 	public static Color fromHtmlColor(String htmlColor) {
 		return Color.decode(htmlColor);
+	}
+
+	public static String toRgbString(Color color) {
+		return String.format("rgb(%d,%d,%d)", color.getRed(), color.getGreen(), color.getBlue());
 	}
 
 	// FIXME, clean up and add tests

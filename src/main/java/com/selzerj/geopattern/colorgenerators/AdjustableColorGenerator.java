@@ -1,35 +1,33 @@
 package com.selzerj.geopattern.colorgenerators;
 
 import com.selzerj.geopattern.Seed;
-import com.selzerj.geopattern.color.ColorUtil;
+import com.selzerj.geopattern.color.ColorUtils;
 import lombok.AllArgsConstructor;
 
 import java.awt.Color;
 
 @AllArgsConstructor
-public class BaseColorGenerator implements ColorGenerator {
+public class AdjustableColorGenerator implements ColorGenerator {
 
-	private final String htmlColor;
+	private final Color baseColor;
 	private final Seed seed;
-
 
 	@Override
 	public Color generate() {
-		return transform(htmlColor, seed);
+		return transform(baseColor, seed);
 	}
 
-	private Color transform(String htmlColor, Seed seed) {
+	private Color transform(Color baseColor, Seed seed) {
 		final float hueOffset = map(seed.getInteger(14, 3), 0, 4095, 0, 359);
 		final int satOffset = seed.getInteger(17, 1);
 
-		Color rgbColor = ColorUtil.fromHtmlColor(htmlColor);
-		float[] hsl = ColorUtil.hsbToHsl(Color.RGBtoHSB(rgbColor.getRed(), rgbColor.getGreen(), rgbColor.getBlue(), null));
+		float[] hsl = ColorUtils.hsbToHsl(Color.RGBtoHSB(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue(), null));
 		hsl[0] = hsl[0] - (hueOffset / 360.0f);
 		hsl[1] = Math.clamp((satOffset % 2 == 0) ?
 				hsl[1] + ((float)satOffset / 100.0f) :
 				hsl[1] - ((float)satOffset / 100.0f), 0.0f, 1.0f);
 
-		float[] hsb = ColorUtil.hslToHsb(hsl);
+		float[] hsb = ColorUtils.hslToHsb(hsl);
 		return new Color(Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]));
 	}
 
