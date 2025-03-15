@@ -27,7 +27,7 @@ public class SolidBackgroundComposerTest {
 	@Test
 	public void testComposeWithFixedColor_shouldReturnCorrectColor() {
 		ColorPreset preset = new ColorPreset(Color.PINK, ColorPresetMode.FIXED);
-		SolidBackgroundComposer composer = new SolidBackgroundComposer(preset, mockSeed);
+		SolidBackgroundComposer composer = new SolidBackgroundComposer(mockSeed, preset);
 
 		Pattern result = new Pattern();
 		composer.compose(result);
@@ -40,7 +40,7 @@ public class SolidBackgroundComposerTest {
 	@Test
 	public void testComposeWithAdjustableColor_shouldReturnCorrectColor() {
 		ColorPreset preset = new ColorPreset(Color.MAGENTA, ColorPresetMode.ADJUSTABLE);
-		SolidBackgroundComposer composer = new SolidBackgroundComposer(preset, mockSeed);
+		SolidBackgroundComposer composer = new SolidBackgroundComposer(mockSeed, preset);
 
 		Pattern result = new Pattern();
 		composer.compose(result);

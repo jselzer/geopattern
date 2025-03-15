@@ -1,6 +1,6 @@
 package com.selzerj.geopattern;
 
-import com.selzerj.geopattern.composers.PatternComposer;
+import com.selzerj.geopattern.svg.SvgImage;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,11 +10,18 @@ public class Pattern {
 	@Getter
 	private Background background;
 
+	@Setter
+	@Getter
+	private Structure structure;
+
 	public Pattern() {
 
 	}
 
-	public Pattern generateMe(PatternComposer generator) {
-		return this;
+	public String toSvg() {
+		return new SvgImage()
+				.addBody(background.getSvgImage().getBody())
+				.addBody(structure.getSvgImage().getBody())
+				.toString();
 	}
 }

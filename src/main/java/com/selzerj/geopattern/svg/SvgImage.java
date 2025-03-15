@@ -23,18 +23,26 @@ public class SvgImage {
 		return getSvgHeader() + body + getSvgCloser();
 	}
 
-	public void addRect(int x, int y, String width, String height, Map<String, String> args) {
-		body += String.format("<rect x=\"%d\" y=\"%d\" width=\"%s\" height=\"%s\" %s />",
+	public SvgImage addRect(float x, float y, String width, String height, Map<String, String> args) {
+		body += String.format("<rect x=\"%f\" y=\"%f\" width=\"%s\" height=\"%s\" %s />",
 				x, y, width, height, writeArgs(args));
+		return this;
 	}
 
-	public void addCircle(int cx, int cy, int r, Map<String, String> args) {
+	public SvgImage addCircle(int cx, int cy, int r, Map<String, String> args) {
 		body += String.format("<circle cx=\"%d\" cy=\"%d\" r=\"%d\" %s />",
 				cx, cy, r, writeArgs(args));
+		return this;
 	}
 
-	public void addPath(String d, Map<String, String> args) {
+	public SvgImage addPath(String d, Map<String, String> args) {
 		body += String.format("<path d=\"%s\" %s />", d, writeArgs(args));
+		return this;
+	}
+
+	public SvgImage addBody(String value) {
+		body += value;
+		return this;
 	}
 
 
