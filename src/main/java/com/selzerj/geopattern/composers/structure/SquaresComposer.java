@@ -16,6 +16,8 @@ public class SquaresComposer extends AbstractStructureComposer {
 		super(seed, patternPreset);
 
 		this.squareSize = map(seed.getInteger(0, 1), 0f, 15f, 10f, 60f);
+		this.width = squareSize * 6f;
+		this.height = squareSize * 6f;
 	}
 
 	@Override

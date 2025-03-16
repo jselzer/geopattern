@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class SvgImage {
 
+	// FIXME, what data type to use for width/height?
 	private int width;
 	private int height;
 
@@ -17,6 +18,13 @@ public class SvgImage {
 		this.width = 100;
 		this.height = 100;
 		this.body = "";
+	}
+
+	public SvgImage(int width, int height) {
+		this();
+
+		this.width = width;
+		this.height = height;
 	}
 
 	public String toString() {

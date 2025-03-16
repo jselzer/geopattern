@@ -14,12 +14,20 @@ public class Pattern {
 	@Getter
 	private Structure structure;
 
+	@Setter
+	@Getter
+	private float height;
+
+	@Setter
+	@Getter
+	private float width;
+
 	public Pattern() {
 
 	}
 
 	public String toSvg() {
-		return new SvgImage()
+		return new SvgImage((int)width, (int)height)
 				.addBody(background.getSvgImage().getBody())
 				.addBody(structure.getSvgImage().getBody())
 				.toString();

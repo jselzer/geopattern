@@ -14,14 +14,21 @@ public abstract class AbstractStructureComposer implements PatternComposer {
 	final protected Seed seed;
 	final protected PatternPreset patternPreset;
 
+	protected float width;
+	protected float height;
+
 	AbstractStructureComposer(Seed seed, PatternPreset patternPreset) {
 		this.seed = seed;
 		this.patternPreset = patternPreset;
+		this.width = 100.0f;
+		this.height = 100.0f;
 	}
 
 	@Override
 	public void compose(Pattern pattern) {
 		pattern.setStructure(new Structure(generate()));
+		pattern.setHeight(height);
+		pattern.setWidth(width);
 	}
 
 	protected Color fillColor(int value) {
