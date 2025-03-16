@@ -32,4 +32,6 @@ public class Pattern {
 				.addBody(structure.getSvgImage().getBody())
 				.toString();
 	}
+
+	// TODO, Base64 encoding
 }
