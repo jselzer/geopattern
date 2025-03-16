@@ -5,11 +5,16 @@ import com.selzerj.geopattern.color.ColorPresetMode;
 import com.selzerj.geopattern.composers.PatternComposer;
 import com.selzerj.geopattern.composers.PatternPreset;
 import com.selzerj.geopattern.composers.background.SolidBackgroundComposer;
-import com.selzerj.geopattern.composers.structure.SquaresComposer;
+import com.selzerj.geopattern.composers.structure.StructureComposerFactory;
+import com.selzerj.geopattern.pattern.Pattern;
+import com.selzerj.geopattern.pattern.PatternSelector;
+import com.selzerj.geopattern.pattern.PatternType;
+import com.selzerj.geopattern.pattern.Seed;
 import lombok.Builder;
 import lombok.NonNull;
 
 import java.awt.Color;
+import java.util.List;
 
 public class PatternGenerator {
 
@@ -21,17 +26,19 @@ public class PatternGenerator {
 	private PatternComposer structureComposer;
 
 	public PatternGenerator(@NonNull String seedString) {
-		this(seedString, null);
+		this(seedString, null, null);
 	}
 
 	@Builder
-	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset) {
+	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset, List<PatternType> desiredPatterns) {
 		// FIXME, need to finish porting all the logic in this method
 		this.seed = new Seed(seedString);
 
 		if (colorPreset == null) {
 			colorPreset = new ColorPreset(new Color(147, 60, 60), ColorPresetMode.FIXED);
 		}
+		backgroundComposer = new SolidBackgroundComposer(seed, colorPreset);
+
 
 		PatternPreset patternPreset = new PatternPreset()
 				.setFillColorDark(new Color(34, 34, 34))
@@ -40,9 +47,8 @@ public class PatternGenerator {
 				.setStrokeOpacity(0.02f)
 				.setOpacityMin(0.02f)
 				.setOpacityMax(0.15f);
-
-		backgroundComposer = new SolidBackgroundComposer(seed, colorPreset);
-		structureComposer = new SquaresComposer(seed, patternPreset);
+		PatternType patternType = new PatternSelector(seed, desiredPatterns).selectPattern();
+		structureComposer = StructureComposerFactory.createStructureComposer(patternType.getStructureComposerClass(), seed, patternPreset);
 	}
 
 	public Pattern generate() {

@@ -1,4 +1,4 @@
-package com.selzerj.geopattern;
+package com.selzerj.geopattern.pattern;
 
 import lombok.experimental.UtilityClass;
 

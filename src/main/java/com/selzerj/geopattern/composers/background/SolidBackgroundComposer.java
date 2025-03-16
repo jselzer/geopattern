@@ -1,8 +1,5 @@
 package com.selzerj.geopattern.composers.background;
 
-import com.selzerj.geopattern.Background;
-import com.selzerj.geopattern.Pattern;
-import com.selzerj.geopattern.Seed;
 import com.selzerj.geopattern.color.ColorPreset;
 import com.selzerj.geopattern.color.ColorPresetMode;
 import com.selzerj.geopattern.color.ColorUtils;
@@ -10,6 +7,9 @@ import com.selzerj.geopattern.colorgenerators.AdjustableColorGenerator;
 import com.selzerj.geopattern.colorgenerators.ColorGenerator;
 import com.selzerj.geopattern.colorgenerators.FixedColorGenerator;
 import com.selzerj.geopattern.composers.PatternComposer;
+import com.selzerj.geopattern.pattern.Background;
+import com.selzerj.geopattern.pattern.Pattern;
+import com.selzerj.geopattern.pattern.Seed;
 import com.selzerj.geopattern.svg.SvgImage;
 
 import java.awt.Color;

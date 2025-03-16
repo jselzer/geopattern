@@ -1,7 +1,7 @@
 package com.selzerj.geopattern.colorgenerators;
 
-import com.selzerj.geopattern.Seed;
 import com.selzerj.geopattern.color.ColorUtils;
+import com.selzerj.geopattern.pattern.Seed;
 import lombok.AllArgsConstructor;
 
 import java.awt.Color;

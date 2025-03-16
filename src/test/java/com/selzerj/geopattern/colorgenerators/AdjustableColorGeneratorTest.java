@@ -1,6 +1,6 @@
 package com.selzerj.geopattern.colorgenerators;
 
-import com.selzerj.geopattern.Seed;
+import com.selzerj.geopattern.pattern.Seed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

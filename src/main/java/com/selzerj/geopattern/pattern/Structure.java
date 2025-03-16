@@ -1,4 +1,4 @@
-package com.selzerj.geopattern;
+package com.selzerj.geopattern.pattern;
 
 import com.selzerj.geopattern.svg.SvgImage;
 import lombok.Value;

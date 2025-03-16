@@ -1,8 +1,8 @@
 package com.selzerj.geopattern.composers.structure;
 
-import com.selzerj.geopattern.Seed;
 import com.selzerj.geopattern.color.ColorUtils;
 import com.selzerj.geopattern.composers.PatternPreset;
+import com.selzerj.geopattern.pattern.Seed;
 import com.selzerj.geopattern.svg.SvgImage;
 
 import java.awt.Color;

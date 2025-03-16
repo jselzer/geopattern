@@ -1,9 +1,9 @@
 package com.selzerj.geopattern.composers.background;
 
-import com.selzerj.geopattern.Pattern;
-import com.selzerj.geopattern.Seed;
 import com.selzerj.geopattern.color.ColorPreset;
 import com.selzerj.geopattern.color.ColorPresetMode;
+import com.selzerj.geopattern.pattern.Pattern;
+import com.selzerj.geopattern.pattern.Seed;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
