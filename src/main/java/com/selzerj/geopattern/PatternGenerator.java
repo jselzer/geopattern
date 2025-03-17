@@ -35,7 +35,7 @@ public class PatternGenerator {
 		this.seed = new Seed(seedString);
 
 		if (colorPreset == null) {
-			colorPreset = new ColorPreset(new Color(147, 60, 60), ColorPresetMode.FIXED);
+			colorPreset = new ColorPreset(new Color(147, 60, 60), ColorPresetMode.ADJUSTABLE);
 		}
 		backgroundComposer = new SolidBackgroundComposer(seed, colorPreset);
 

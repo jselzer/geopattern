@@ -16,11 +16,11 @@ public class Pattern {
 
 	@Setter
 	@Getter
-	private float height;
+	private int height;
 
 	@Setter
 	@Getter
-	private float width;
+	private int width;
 
 	public Pattern() {
 

@@ -14,8 +14,8 @@ public abstract class AbstractStructureComposer implements PatternComposer {
 	final protected Seed seed;
 	final protected PatternPreset patternPreset;
 
-	protected float width;
-	protected float height;
+	protected double width;
+	protected double height;
 
 	AbstractStructureComposer(Seed seed, PatternPreset patternPreset) {
 		this.seed = seed;
@@ -27,8 +27,8 @@ public abstract class AbstractStructureComposer implements PatternComposer {
 	@Override
 	public void compose(Pattern pattern) {
 		pattern.setStructure(new Structure(generate()));
-		pattern.setHeight(height);
-		pattern.setWidth(width);
+		pattern.setHeight((int)height);
+		pattern.setWidth((int)width);
 	}
 
 	protected Color fillColor(int value) {

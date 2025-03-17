@@ -6,6 +6,6 @@ import java.awt.Color;
 
 @Value
 public class ColorPreset {
-	private final Color color;
-	private final ColorPresetMode mode;
+	Color color;
+	ColorPresetMode mode;
 }
