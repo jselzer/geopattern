@@ -13,8 +13,8 @@ public class PatternPreset {
 	Color fillColorLight;
 
 	Color strokeColor;
-	float strokeOpacity;
+	double strokeOpacity;
 
-	float opacityMin;
-	float opacityMax;
+	double opacityMin;
+	double opacityMax;
 }

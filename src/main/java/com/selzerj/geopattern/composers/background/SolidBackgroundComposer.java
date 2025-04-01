@@ -28,7 +28,7 @@ public class SolidBackgroundComposer implements PatternComposer {
 	@Override
 	public void compose(Pattern pattern) {
 		SvgImage backgroundImage = new SvgImage();
-		backgroundImage.addRect(0, 0, "100%", "100%",
+		backgroundImage.addRect(0.0, 0.0, "100%", "100%",
 				Map.of("fill", ColorUtils.toRgbString(this.backgroundColor)));
 
 		// TODO, consider replacing Pattern with a PatternBuilder?

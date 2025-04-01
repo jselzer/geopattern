@@ -37,14 +37,14 @@ public abstract class AbstractStructureComposer implements PatternComposer {
 				this.patternPreset.getFillColorDark();
 	}
 
-	protected float opacity(int value) {
-		return map((float)value, 0.0f, 15.0f, patternPreset.getOpacityMin(), patternPreset.getOpacityMax());
+	protected double opacity(int value) {
+		return map(value, 0.0, 15.0, patternPreset.getOpacityMin(), patternPreset.getOpacityMax());
 	}
 
 	// FIXME, code duplication with AdjustableColorGenerator map method
-	protected float map(float value, float inputMin, float inputMax, float outputMin, float outputMax) {
-		float inputRange = inputMax - inputMin;
-		float outputRange = outputMax - outputMin;
+	protected double map(double value, double inputMin, double inputMax, double outputMin, double outputMax) {
+		double inputRange = inputMax - inputMin;
+		double outputRange = outputMax - outputMin;
 
 		return ((value - inputMin) * outputRange / inputRange) + outputMin;
 	}

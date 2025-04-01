@@ -32,7 +32,7 @@ public class SineWavesComposer extends AbstractStructureComposer {
 
 		for (int i = 0; i < 36; i++) {
 			int value = seed.getInteger(i, 1);
-			float opacity = opacity(value);
+			double opacity = opacity(value);
 			Color fillColor = fillColor(value);
 			double xOffset = (period / 4.0) * 0.7;
 

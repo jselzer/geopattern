@@ -27,11 +27,12 @@ public class Pattern {
 	}
 
 	public String toSvg() {
-		return new SvgImage((int)width, (int)height)
+		return new SvgImage(width, height)
+				// FIXME, null handling
 				.addBody(background.getSvgImage().getBody())
 				.addBody(structure.getSvgImage().getBody())
 				.toString();
 	}
 
-	// TODO, Base64 encoding
+	// TODO, add Base64 encoding
 }

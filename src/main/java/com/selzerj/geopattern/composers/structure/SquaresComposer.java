@@ -10,12 +10,12 @@ import java.util.Map;
 
 public class SquaresComposer extends AbstractStructureComposer {
 
-	private final float squareSize;
+	private final double squareSize;
 
 	public SquaresComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.squareSize = map(seed.getInteger(0, 1), 0f, 15f, 10f, 60f);
+		this.squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 60);
 		this.width = squareSize * 6f;
 		this.height = squareSize * 6f;
 	}
@@ -36,15 +36,15 @@ public class SquaresComposer extends AbstractStructureComposer {
 	}
 
 	private void createSquareAtCoords(SvgImage svgImage, int seedValue, int x, int y) {
-		final float opacity = opacity(seedValue);
+		final double opacity = opacity(seedValue);
 		final Color fillColor = fillColor(seedValue);
 
-		svgImage.addRect(x * squareSize, y * squareSize, Float.toString(squareSize), Float.toString(squareSize),
+		svgImage.addRect(x * squareSize, y * squareSize, Double.toString(squareSize), Double.toString(squareSize),
 				Map.of(
 						"fill", ColorUtils.toRgbString(fillColor),
-						"fill-opacity", Float.toString(opacity),
+						"fill-opacity", Double.toString(opacity),
 						"stroke", ColorUtils.toRgbString(patternPreset.getStrokeColor()),
-						"stroke-opacity", Float.toString(patternPreset.getStrokeOpacity()))
+						"stroke-opacity", Double.toString(patternPreset.getStrokeOpacity()))
 		);
 	}
 }
