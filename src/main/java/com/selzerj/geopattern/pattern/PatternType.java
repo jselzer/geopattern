@@ -1,12 +1,14 @@
 package com.selzerj.geopattern.pattern;
 
 import com.selzerj.geopattern.composers.structure.AbstractStructureComposer;
+import com.selzerj.geopattern.composers.structure.ChevronsComposer;
 import com.selzerj.geopattern.composers.structure.SineWavesComposer;
 import com.selzerj.geopattern.composers.structure.SquaresComposer;
 import lombok.Getter;
 
 @Getter
 public enum PatternType {
+	CHEVRONS(ChevronsComposer.class),
 	SQUARES(SquaresComposer.class),
 	SINE_WAVES(SineWavesComposer.class);
 

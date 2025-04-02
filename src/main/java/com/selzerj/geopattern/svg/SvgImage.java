@@ -48,6 +48,24 @@ public class SvgImage {
 		return this;
 	}
 
+	public SvgImage addPolyline(String points) {
+		return this.addPolyline(points, Map.of());
+	}
+
+	public SvgImage addPolyline(String points, Map<String, String> args) {
+		body += String.format("<polyline points=\"%s\" %s />", points, writeArgs(args));
+		return this;
+	}
+
+	public SvgImage addGroup(String elements, Map<String, String> args) {
+		body += String.format("<g %s>", writeArgs(args));
+		body += elements;
+		body += "</g>";
+		return this;
+	}
+
+
+
 	public SvgImage addBody(String value) {
 		body += value;
 		return this;
