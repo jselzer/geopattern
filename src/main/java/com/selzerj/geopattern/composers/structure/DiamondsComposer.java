@@ -45,10 +45,7 @@ public class DiamondsComposer extends AbstractStructureComposer {
 
 				double dx = (y % 2 == 0) ? 0: diamondWidth / 2;
 
-				String diamond = DoubleStream.of(diamondWidth / 2, 0, diamondWidth, diamondHeight / 2,
-								diamondWidth / 2, diamondHeight, 0, diamondHeight / 2)
-						.mapToObj(Double::toString)
-						.collect(Collectors.joining(", "));
+				String diamond = getDiamondPoints();
 
 				styles.put("transform", String.format("translate(%s,%s)",
 								(double)x * diamondWidth - diamondWidth / 2 + dx,
@@ -84,5 +81,14 @@ public class DiamondsComposer extends AbstractStructureComposer {
 		}
 
 		return svgImage;
+	}
+
+	private String getDiamondPoints() {
+		return DoubleStream.of(diamondWidth / 2, 0,
+						diamondWidth, diamondHeight / 2,
+						diamondWidth / 2, diamondHeight,
+						0, diamondHeight / 2)
+				.mapToObj(Double::toString)
+				.collect(Collectors.joining(", "));
 	}
 }
