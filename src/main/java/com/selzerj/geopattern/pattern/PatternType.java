@@ -3,6 +3,7 @@ package com.selzerj.geopattern.pattern;
 import com.selzerj.geopattern.composers.structure.AbstractStructureComposer;
 import com.selzerj.geopattern.composers.structure.ChevronsComposer;
 import com.selzerj.geopattern.composers.structure.ConcentricCirclesComposer;
+import com.selzerj.geopattern.composers.structure.DiamondsComposer;
 import com.selzerj.geopattern.composers.structure.SineWavesComposer;
 import com.selzerj.geopattern.composers.structure.SquaresComposer;
 import lombok.Getter;
@@ -11,6 +12,7 @@ import lombok.Getter;
 public enum PatternType {
 	CHEVRONS(ChevronsComposer.class),
 	CONCENTRIC_CIRCLES(ConcentricCirclesComposer.class),
+	DIAMONDS(DiamondsComposer.class),
 	SQUARES(SquaresComposer.class),
 	SINE_WAVES(SineWavesComposer.class);
 

@@ -36,6 +36,7 @@ public class PatternGeneratorTest {
 		return Stream.of(
 				Arguments.of(PatternType.CHEVRONS, "chevrons.svg"),
 				Arguments.of(PatternType.CONCENTRIC_CIRCLES, "concentric_circles.svg"),
+				Arguments.of(PatternType.DIAMONDS, "diamonds.svg"),
 				Arguments.of(PatternType.SQUARES, "squares.svg"),
 				Arguments.of(PatternType.SINE_WAVES, "sine_waves.svg")
 		);
