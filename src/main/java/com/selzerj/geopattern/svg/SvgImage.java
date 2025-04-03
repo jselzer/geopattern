@@ -37,8 +37,8 @@ public class SvgImage {
 		return this;
 	}
 
-	public SvgImage addCircle(int cx, int cy, int r, Map<String, String> args) {
-		body += String.format("<circle cx=\"%d\" cy=\"%d\" r=\"%d\" %s />",
+	public SvgImage addCircle(double cx, double cy, double r, Map<String, String> args) {
+		body += String.format("<circle cx=\"%s\" cy=\"%s\" r=\"%s\" %s />",
 				cx, cy, r, writeArgs(args));
 		return this;
 	}
