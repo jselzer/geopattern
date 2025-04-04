@@ -39,6 +39,7 @@ public class PatternGeneratorTest {
 				Arguments.of(PatternType.DIAMONDS, "diamonds.svg"),
 				Arguments.of(PatternType.HEXAGONS, "hexagons.svg"),
 				Arguments.of(PatternType.MOSAIC_SQUARES, "mosaic_squares.svg"),
+				Arguments.of(PatternType.NESTED_SQUARES, "nested_squares.svg"),
 				Arguments.of(PatternType.SQUARES, "squares.svg"),
 				Arguments.of(PatternType.SINE_WAVES, "sine_waves.svg")
 		);
