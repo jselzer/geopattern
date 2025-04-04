@@ -84,7 +84,8 @@ public class DiamondsComposer extends AbstractStructureComposer {
 	}
 
 	private String getDiamondPoints() {
-		return DoubleStream.of(diamondWidth / 2, 0,
+		return DoubleStream.of(
+				diamondWidth / 2, 0,
 						diamondWidth, diamondHeight / 2,
 						diamondWidth / 2, diamondHeight,
 						0, diamondHeight / 2)
