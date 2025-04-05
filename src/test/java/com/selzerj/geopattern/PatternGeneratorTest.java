@@ -26,10 +26,10 @@ public class PatternGeneratorTest {
 				.desiredPatterns(List.of(patternType))
 				.build();
 		Pattern pattern = patternGenerator.generate();
-		byte[] actual = SvgUtils.convertToBufferedImage(pattern.toSvg());
 		byte[] expected = getSvgAsTiffBytes(fixtureFilename);
+		byte[] actual = SvgUtils.convertToBufferedImage(pattern.toSvg());
 
-		assertArrayEquals(actual, expected);
+		assertArrayEquals(expected, actual);
 	}
 
 	private static Stream<Arguments> providePatternsAndFixtures() {
@@ -46,7 +46,8 @@ public class PatternGeneratorTest {
 				Arguments.of(PatternType.PLAID, "plaid.svg"),
 				Arguments.of(PatternType.PLUS_SIGNS, "plus_signs.svg"),
 				Arguments.of(PatternType.SQUARES, "squares.svg"),
-				Arguments.of(PatternType.SINE_WAVES, "sine_waves.svg")
+				Arguments.of(PatternType.SINE_WAVES, "sine_waves.svg"),
+				Arguments.of(PatternType.TESSELLATION, "tessellation.svg")
 		);
 	}
 

@@ -12,7 +12,7 @@ public class Main {
 	public static void main(String[] args) {
 		PatternGenerator patternGenerator = PatternGenerator.builder()
 				.seedString("Mastering Markdown")
-				.desiredPatterns(List.of(PatternType.PLUS_SIGNS))
+				.desiredPatterns(List.of(PatternType.TESSELLATION))
 				.build();
 		Pattern pattern = patternGenerator.generate();
 
