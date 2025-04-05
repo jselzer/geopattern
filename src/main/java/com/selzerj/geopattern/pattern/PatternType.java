@@ -8,6 +8,7 @@ import com.selzerj.geopattern.composers.structure.HexagonsComposer;
 import com.selzerj.geopattern.composers.structure.MosaicSquaresComposer;
 import com.selzerj.geopattern.composers.structure.NestedSquaresComposer;
 import com.selzerj.geopattern.composers.structure.OctagonsComposer;
+import com.selzerj.geopattern.composers.structure.OverlappingCirclesComposer;
 import com.selzerj.geopattern.composers.structure.SineWavesComposer;
 import com.selzerj.geopattern.composers.structure.SquaresComposer;
 import lombok.Getter;
@@ -21,6 +22,7 @@ public enum PatternType {
 	MOSAIC_SQUARES(MosaicSquaresComposer.class),
 	NESTED_SQUARES(NestedSquaresComposer.class),
 	OCTAGONS(OctagonsComposer.class),
+	OVERLAPPING_CIRCLES(OverlappingCirclesComposer.class),
 	SQUARES(SquaresComposer.class),
 	SINE_WAVES(SineWavesComposer.class);
 
