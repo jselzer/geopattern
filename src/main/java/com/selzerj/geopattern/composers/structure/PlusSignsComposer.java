@@ -1,0 +1,86 @@
+package com.selzerj.geopattern.composers.structure;
+
+import com.selzerj.geopattern.color.ColorUtils;
+import com.selzerj.geopattern.composers.PatternPreset;
+import com.selzerj.geopattern.pattern.Seed;
+import com.selzerj.geopattern.svg.SvgImage;
+
+import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
+
+public class PlusSignsComposer extends AbstractStructureComposer {
+
+	private final double squareSize;
+	private final double plusSize;
+
+	public PlusSignsComposer(Seed seed, PatternPreset patternPreset) {
+		super(seed, patternPreset);
+
+		this.squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 25);
+		this.plusSize = squareSize * 3;
+
+		this.width = squareSize * 12;
+		this.height = this.width;
+	}
+
+	@Override
+	protected SvgImage generate() {
+		SvgImage svgImage = new SvgImage();
+		int i = 0;
+
+		for (int y = 0; y < 6; y++) {
+			for (int x = 0; x < 6; x++) {
+				int val = seed.getInteger(i, 1);
+				double opacity = opacity(val);
+				Color fill = fillColor(val);
+				int dx = (y % 2 == 0) ? 0 : 1;
+
+				Map<String, String> styles = new HashMap<>();
+				styles.put("fill", ColorUtils.toRgbString(fill));
+				styles.put("stroke", ColorUtils.toRgbString(patternPreset.getStrokeColor()));
+				styles.put("stroke-opacity", Double.toString(patternPreset.getStrokeOpacity()));
+				styles.put("style", String.format("fill-opacity: %s", opacity));
+
+				final SvgImage plusShape = getPlusShape(squareSize);
+				styles.put("transform", String.format("translate(%s,%s)",
+						x * plusSize - x * squareSize + dx * squareSize - squareSize,
+						y * plusSize - y * squareSize - plusSize / 2));
+				svgImage.addGroup(plusShape.getBody(), styles);
+
+            	// Add an extra column on the right for tiling.
+				if (x == 0) {
+					styles.put("transform", String.format("translate(%s,%s)",
+							4 * plusSize - x * squareSize + dx * squareSize - squareSize,
+							y * plusSize - y * squareSize - plusSize / 2));
+					svgImage.addGroup(plusShape.getBody(), styles);
+				}
+
+				// Add an extra row on the bottom that matches the first row, for tiling.
+				if (y == 0) {
+					styles.put("transform", String.format("translate(%s,%s)",
+							x * plusSize - x * squareSize + dx * squareSize - squareSize,
+							4 * plusSize - y * squareSize - plusSize / 2));
+					svgImage.addGroup(plusShape.getBody(), styles);
+				}
+
+				// Add an extra one at top-right and bottom-right, for tiling.
+				if (x == 0 && y == 0) {
+					styles.put("transform", String.format("translate(%s,%s)",
+							4 * plusSize - x * squareSize + dx * squareSize - squareSize,
+							4 * plusSize - y * squareSize - plusSize / 2));
+					svgImage.addGroup(plusShape.getBody(), styles);
+				}
+				i++;
+			}
+		}
+
+		return svgImage;
+	}
+
+	private SvgImage getPlusShape(double squareSize) {
+		return new SvgImage()
+				.addRect(squareSize, 0, squareSize, squareSize * 3)
+				.addRect(0, squareSize, squareSize * 3, squareSize);
+	}
+}

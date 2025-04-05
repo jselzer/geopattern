@@ -11,6 +11,7 @@ import com.selzerj.geopattern.composers.structure.OctagonsComposer;
 import com.selzerj.geopattern.composers.structure.OverlappingCirclesComposer;
 import com.selzerj.geopattern.composers.structure.OverlappingRingsComposer;
 import com.selzerj.geopattern.composers.structure.PlaidComposer;
+import com.selzerj.geopattern.composers.structure.PlusSignsComposer;
 import com.selzerj.geopattern.composers.structure.SineWavesComposer;
 import com.selzerj.geopattern.composers.structure.SquaresComposer;
 import lombok.Getter;
@@ -27,6 +28,7 @@ public enum PatternType {
 	OVERLAPPING_CIRCLES(OverlappingCirclesComposer.class),
 	OVERLAPPING_RINGS(OverlappingRingsComposer.class),
 	PLAID(PlaidComposer.class),
+	PLUS_SIGNS(PlusSignsComposer.class),
 	SQUARES(SquaresComposer.class),
 	SINE_WAVES(SineWavesComposer.class);
 

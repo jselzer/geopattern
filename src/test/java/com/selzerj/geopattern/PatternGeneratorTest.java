@@ -44,6 +44,7 @@ public class PatternGeneratorTest {
 				Arguments.of(PatternType.OVERLAPPING_CIRCLES, "overlapping_circles.svg"),
 				Arguments.of(PatternType.OVERLAPPING_RINGS, "overlapping_rings.svg"),
 				Arguments.of(PatternType.PLAID, "plaid.svg"),
+				Arguments.of(PatternType.PLUS_SIGNS, "plus_signs.svg"),
 				Arguments.of(PatternType.SQUARES, "squares.svg"),
 				Arguments.of(PatternType.SINE_WAVES, "sine_waves.svg")
 		);

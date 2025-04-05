@@ -31,6 +31,10 @@ public class SvgImage {
 		return getSvgHeader() + body + getSvgCloser();
 	}
 
+	public SvgImage addRect(double x, double y, double width, double height) {
+		return this.addRect(x, y, Double.toString(width), Double.toString(height), Map.of());
+	}
+
 	public SvgImage addRect(double x, double y, double width, double height, Map<String, String> args) {
 		return this.addRect(x, y, Double.toString(width), Double.toString(height), args);
 	}
