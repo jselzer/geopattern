@@ -16,6 +16,7 @@ import com.selzerj.geopattern.composers.structure.SineWavesComposer;
 import com.selzerj.geopattern.composers.structure.SquaresComposer;
 import com.selzerj.geopattern.composers.structure.TessellationComposer;
 import com.selzerj.geopattern.composers.structure.TrianglesComposer;
+import com.selzerj.geopattern.composers.structure.XesComposer;
 import lombok.Getter;
 
 @Getter
@@ -34,7 +35,8 @@ public enum PatternType {
 	SQUARES(SquaresComposer.class),
 	SINE_WAVES(SineWavesComposer.class),
 	TESSELLATION(TessellationComposer.class),
-	TRIANGLES(TrianglesComposer.class);
+	TRIANGLES(TrianglesComposer.class),
+	XES(XesComposer.class);
 
 	private final Class<? extends AbstractStructureComposer> structureComposerClass;
 
