@@ -47,7 +47,8 @@ public class PatternGeneratorTest {
 				Arguments.of(PatternType.PLUS_SIGNS, "plus_signs.svg"),
 				Arguments.of(PatternType.SQUARES, "squares.svg"),
 				Arguments.of(PatternType.SINE_WAVES, "sine_waves.svg"),
-				Arguments.of(PatternType.TESSELLATION, "tessellation.svg")
+				Arguments.of(PatternType.TESSELLATION, "tessellation.svg"),
+				Arguments.of(PatternType.TRIANGLES, "triangles.svg")
 		);
 	}
 
