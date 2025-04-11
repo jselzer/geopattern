@@ -33,7 +33,7 @@ public class SolidBackgroundComposerTest {
 		composer.compose(result);
 
 		String svgBackground = result.getBackground().getSvgImage().getBody();
-		String expected = "<rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"rgb(255,175,175)\" />";
+		String expected = "<rect x=\"0.000000\" y=\"0.000000\" width=\"100%\" height=\"100%\" fill=\"rgb(255,175,175)\" />";
 		assertEquals(expected, svgBackground);
 	}
 
@@ -46,7 +46,7 @@ public class SolidBackgroundComposerTest {
 		composer.compose(result);
 
 		String svgBackground = result.getBackground().getSvgImage().getBody();
-		String expected = "<rect x=\"0\" y=\"0\" width=\"100%\" height=\"100%\" fill=\"rgb(207,251,4)\" />";
+		String expected = "<rect x=\"0.000000\" y=\"0.000000\" width=\"100%\" height=\"100%\" fill=\"rgb(207,251,4)\" />";
 		assertEquals(expected, svgBackground);
 	}
 }
