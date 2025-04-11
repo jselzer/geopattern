@@ -1,13 +1,24 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
     id 'io.freefair.lombok' version '8.13'
 }
 
 group = 'com.selzerj'
-version = '1.0-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    mavenLocal()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifactId = 'geopattern'
+            from components.java
+        }
+    }
 }
 
 dependencies {
