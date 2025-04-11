@@ -32,8 +32,8 @@ public enum PatternType {
 	OVERLAPPING_RINGS(OverlappingRingsComposer.class),
 	PLAID(PlaidComposer.class),
 	PLUS_SIGNS(PlusSignsComposer.class),
-	SQUARES(SquaresComposer.class),
 	SINE_WAVES(SineWavesComposer.class),
+	SQUARES(SquaresComposer.class),
 	TESSELLATION(TessellationComposer.class),
 	TRIANGLES(TrianglesComposer.class),
 	XES(XesComposer.class);
