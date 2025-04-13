@@ -24,11 +24,7 @@ public class PatternGenerator {
 	// FIXME, should I have different type for background and structure generators?
 	private PatternComposer backgroundComposer;
 	private PatternComposer structureComposer;
-
-	public PatternGenerator(@NonNull String seedString) {
-		this(seedString, null, null);
-	}
-
+	
 	@Builder
 	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset, List<PatternType> desiredPatterns) {
 		// FIXME, need to finish porting all the logic in this method
