@@ -16,6 +16,6 @@ public class PatternSelector {
 
 	public PatternType selectPattern() {
 		// FIXME, seems like a bug in the original library - shouldn't this be modulus instead of min?  Test with a low # of patterns
-		return availablePatterns.get(Math.min(seed.getInteger(20, 1), availablePatterns.size() - 1));
+		return availablePatterns.get(seed.getInteger(20, 1) % availablePatterns.size());
 	}
 }

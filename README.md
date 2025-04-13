@@ -1,6 +1,5 @@
 ### TODO
 
-- is there a pattern selector bug in the original?
 - why does the squares pattern for "koko" look so squished?
 - add editorconfig
 - clean up color handling

@@ -5,6 +5,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
+import java.util.List;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,26 +31,35 @@ public class PatternSelectorTest {
 		assertEquals(expectedPattern, result);
 	}
 
+	@ParameterizedTest
+	@MethodSource("provideSeeds")
+	public void testSelectPatternWithLimitedDesiredPatterns(int seedValue) {
+		when(mockSeed.getInteger(20, 1)).thenReturn(seedValue);
+		List<PatternType> availablePatterns = List.of(PatternType.CHEVRONS, PatternType.CONCENTRIC_CIRCLES, PatternType.OCTAGONS);
+		PatternSelector selector = new PatternSelector(mockSeed, availablePatterns);
+		PatternType result = selector.selectPattern();
+		assertEquals(availablePatterns.get(seedValue % availablePatterns.size()), result);
+	}
+
+	@ParameterizedTest
+	@MethodSource("provideSeeds")
+	public void testSelectPatternWithOnePattern_shouldReturnPattern(int seedValue) {
+		when(mockSeed.getInteger(20, 1)).thenReturn(seedValue);
+		PatternSelector selector = new PatternSelector(mockSeed, List.of(PatternType.DIAMONDS));
+		PatternType result = selector.selectPattern();
+		assertEquals(PatternType.DIAMONDS, result);
+	}
+
+
 
 	private static Stream<Arguments> provideSeedAndExpectedPattern() {
-		return Stream.of(
-				Arguments.of(0, PatternType.CHEVRONS),
-				Arguments.of(1, PatternType.CONCENTRIC_CIRCLES),
-				Arguments.of(2, PatternType.DIAMONDS),
-				Arguments.of(3, PatternType.HEXAGONS),
-				Arguments.of(4, PatternType.MOSAIC_SQUARES),
-				Arguments.of(5, PatternType.NESTED_SQUARES),
-				Arguments.of(6, PatternType.OCTAGONS),
-				Arguments.of(7, PatternType.OVERLAPPING_CIRCLES),
-				Arguments.of(8, PatternType.OVERLAPPING_RINGS),
-				Arguments.of(9, PatternType.PLAID),
-				Arguments.of(10, PatternType.PLUS_SIGNS),
-				Arguments.of(11, PatternType.SINE_WAVES),
-				Arguments.of(12, PatternType.SQUARES),
-				Arguments.of(13, PatternType.TESSELLATION),
-				Arguments.of(14, PatternType.TRIANGLES),
-				Arguments.of(15, PatternType.XES)
-		);
+		return IntStream.range(0, 16)
+				.mapToObj(i -> Arguments.of(i, PatternType.values()[i]));
+	}
+
+	private static Stream<Arguments> provideSeeds() {
+		return IntStream.range(0, 16)
+				.mapToObj(Arguments::of);
 	}
 
 }
