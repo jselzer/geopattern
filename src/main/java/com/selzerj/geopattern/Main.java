@@ -1,18 +1,15 @@
 package com.selzerj.geopattern;
 
 import com.selzerj.geopattern.pattern.Pattern;
-import com.selzerj.geopattern.pattern.PatternType;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
 	public static void main(String[] args) {
 		PatternGenerator patternGenerator = PatternGenerator.builder()
-				.seedString("Mastering Markdown")
-				.desiredPatterns(List.of(PatternType.TESSELLATION))
+				.seedString("Koko")
 				.build();
 		Pattern pattern = patternGenerator.generate();
 

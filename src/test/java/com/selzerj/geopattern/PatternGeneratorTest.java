@@ -8,7 +8,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -20,7 +19,7 @@ public class PatternGeneratorTest {
 
 	@ParameterizedTest
 	@MethodSource("providePatternsAndFixtures")
-	void testPatternGenerator_shouldMatchFixture(PatternType patternType, String fixtureFilename) throws IOException {
+	void testPatternGenerator_shouldMatchFixture(PatternType patternType, String fixtureFilename) {
 		PatternGenerator patternGenerator = PatternGenerator.builder()
 				.seedString(SEED_STRING)
 				.desiredPatterns(List.of(patternType))
