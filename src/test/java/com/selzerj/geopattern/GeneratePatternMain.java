@@ -6,10 +6,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Main {
+public class GeneratePatternMain {
 	public static void main(String[] args) {
 		PatternGenerator patternGenerator = PatternGenerator.builder()
-				.seedString("Koko")
+				.seedString("test")
 				.build();
 		Pattern pattern = patternGenerator.generate();
 

@@ -20,8 +20,7 @@ public class NestedSquaresComposer extends AbstractStructureComposer {
 		this.blockSize = map(seed.getInteger(0, 1), 0, 15, 4, 12);
 		this.squareSize = blockSize * 7.0;
 
-		this.height = (squareSize + blockSize) * 6.0 + blockSize * 6;
-		this.width = this.height;
+		this.width = this.height = (squareSize + blockSize) * 6.0 + blockSize * 6;
 	}
 
 	@Override

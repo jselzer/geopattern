@@ -13,7 +13,6 @@ import java.util.stream.DoubleStream;
 
 public class HexagonsComposer extends AbstractStructureComposer {
 
-	private final double scale;
 	private final double sideLength;
 	private final double hexHeight;
 	private final double hexWidth;
@@ -21,7 +20,7 @@ public class HexagonsComposer extends AbstractStructureComposer {
 	public HexagonsComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.scale = seed.getInteger(0, 1);
+		double scale = seed.getInteger(0, 1);
 		this.sideLength = map(scale, 0, 15, 8, 60);
 		this.hexHeight = sideLength * Math.sqrt(3);
 		this.hexWidth = sideLength * 2;

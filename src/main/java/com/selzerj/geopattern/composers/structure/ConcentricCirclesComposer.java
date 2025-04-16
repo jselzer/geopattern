@@ -10,19 +10,17 @@ import java.util.Map;
 
 public class ConcentricCirclesComposer extends AbstractStructureComposer {
 
-	private final double scale;
 	private final double ringSize;
 	private final double strokeWidth;
 
 	public ConcentricCirclesComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.scale = seed.getInteger(0, 1);
+		double scale = seed.getInteger(0, 1);
 		this.ringSize = map(scale, 0, 15, 10, 60);
 		this.strokeWidth = ringSize / 5;
 
-		this.width = (ringSize + strokeWidth) * 6;
-		this.height = this.width;
+		this.width = this.height = (ringSize + strokeWidth) * 6;
 	}
 
 	@Override

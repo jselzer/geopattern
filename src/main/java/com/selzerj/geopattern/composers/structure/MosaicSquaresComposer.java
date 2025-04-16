@@ -20,8 +20,7 @@ public class MosaicSquaresComposer extends AbstractStructureComposer {
 
 		this.triangleSize = map(seed.getInteger(0, 1), 0, 15, 15, 50);
 
-		this.width = triangleSize * 8;
-		this.height = this.width;
+		this.width = this.height = triangleSize * 8;
 	}
 
 

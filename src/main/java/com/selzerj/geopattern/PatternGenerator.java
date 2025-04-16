@@ -18,8 +18,6 @@ import java.util.List;
 
 public class PatternGenerator {
 
-	final private Seed seed;
-
 
 	// FIXME, should I have different type for background and structure generators?
 	private final PatternComposer backgroundComposer;
@@ -28,7 +26,7 @@ public class PatternGenerator {
 	@Builder
 	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset, List<PatternType> desiredPatterns) {
 		// FIXME, need to finish porting all the logic in this method
-		this.seed = new Seed(seedString);
+		Seed seed = new Seed(seedString);
 
 		if (colorPreset == null) {
 			colorPreset = new ColorPreset(new Color(147, 60, 60), ColorPresetMode.ADJUSTABLE);

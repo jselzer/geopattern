@@ -11,7 +11,6 @@ import java.util.Map;
 
 public class XesComposer extends AbstractStructureComposer {
 
-	private final double squareSize;
 	private final SvgImage plusShape;
 	private final double xSize;
 
@@ -19,12 +18,11 @@ public class XesComposer extends AbstractStructureComposer {
 	public XesComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 25);
+		double squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 25);
 		this.plusShape = getPlusShape(squareSize);
 		this.xSize = squareSize * 3 * 0.943;
 
-		this.width = xSize * 3;
-		this.height = this.width;
+		this.width = this.height = xSize * 3;
 	}
 
 	@Override

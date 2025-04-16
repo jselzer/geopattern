@@ -17,11 +17,9 @@ import java.util.Map;
 
 public class SolidBackgroundComposer implements PatternComposer {
 
-	private final ColorPreset colorPreset;
 	private final Color backgroundColor;
 
 	public SolidBackgroundComposer(Seed seed, ColorPreset colorPreset) {
-		this.colorPreset = colorPreset;
 		this.backgroundColor = initBackgroundColor(colorPreset, seed);
 	}
 

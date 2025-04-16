@@ -1,25 +1,17 @@
 package com.selzerj.geopattern.pattern;
 
 import com.selzerj.geopattern.svg.SvgImage;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
+@Data
 public class Pattern {
 
-	@Setter
-	@Getter
 	private Background background;
 
-	@Setter
-	@Getter
 	private Structure structure;
 
-	@Setter
-	@Getter
 	private int height;
 
-	@Setter
-	@Getter
 	private int width;
 
 	public Pattern() {

@@ -17,8 +17,7 @@ public class OverlappingCirclesComposer extends AbstractStructureComposer {
 
 		this.radius = map(seed.getInteger(0, 1), 0, 15, 25, 200) / 2.0;
 
-		this.width = this.radius * 6.0;
-		this.height = this.width;
+		this.width = this.height = this.radius * 6.0;
 	}
 
 	@Override

@@ -19,8 +19,7 @@ public class OctagonsComposer extends AbstractStructureComposer {
 
 		this.squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 60);
 
-		this.width = squareSize * 6.0;
-		this.height = this.width;
+		this.width = this.height = squareSize * 6.0;
 	}
 
 	@Override
