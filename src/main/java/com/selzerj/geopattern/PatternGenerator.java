@@ -22,9 +22,9 @@ public class PatternGenerator {
 
 
 	// FIXME, should I have different type for background and structure generators?
-	private PatternComposer backgroundComposer;
-	private PatternComposer structureComposer;
-	
+	private final PatternComposer backgroundComposer;
+	private final PatternComposer structureComposer;
+
 	@Builder
 	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset, List<PatternType> desiredPatterns) {
 		// FIXME, need to finish porting all the logic in this method
