@@ -48,14 +48,14 @@ public class TrianglesComposer  extends AbstractStructureComposer {
 						((x % 2 != 0) ? 180 : 0);
 				String trianglePoints = getTrianglePoints(sideLength, triangleHeight);
 
-				styles.put("transform", "translate(%s, %s) rotate(%s, %s, %s)".formatted(
+				styles.put("transform", String.format("translate(%s, %s) rotate(%s, %s, %s)",
 						x * sideLength * 0.5 - sideLength / 2, triangleHeight * y,
 						rotation, sideLength / 2, triangleHeight / 2));
 				svgImage.addPolyline(trianglePoints, styles);
 
 				// Add an extra one at the top-right, for tiling
 				if (x == 0) {
-					styles.put("transform", "translate(%s, %s) rotate(%s, %s, %s)".formatted(
+					styles.put("transform", String.format("translate(%s, %s) rotate(%s, %s, %s)",
 							6 * sideLength * 0.5 - sideLength / 2, triangleHeight * y,
 							rotation, sideLength / 2, triangleHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);

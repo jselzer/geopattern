@@ -45,13 +45,13 @@ public class XesComposer extends AbstractStructureComposer {
 				styles.put("fill", ColorUtils.toRgbString(fill));
 				styles.put("style", String.format("opacity: %s", opacity));
 
-				styles.put("transform", "translate(%s, %s) rotate(45, %s, %s)".formatted(
+				styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 						x * xSize / 2 - xSize / 2, dy - y * xSize / 2, xSize / 2, xSize / 2));
 				svgImage.addGroup(plusShape.getBody(), styles);
 
 				// Add an extra column on the right for tiling.
 				if (x == 0) {
-					styles.put("transform", "translate(%s, %s) rotate(45, %s, %s)".formatted(
+					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							6 * xSize / 2 - xSize / 2, dy - y * xSize / 2, xSize / 2, xSize / 2));
 					svgImage.addGroup(plusShape.getBody(), styles);
 				}
@@ -61,21 +61,21 @@ public class XesComposer extends AbstractStructureComposer {
 					dy = (x % 2 == 0) ?
 							6 * xSize - xSize / 2 :
 							6 * xSize - xSize / 2 + xSize / 4;
-					styles.put("transform", "translate(%s, %s) rotate(45, %s, %s)".formatted(
+					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							x * xSize / 2 - xSize / 2, dy - 6 * xSize / 2, xSize / 2, xSize / 2));
 					svgImage.addGroup(plusShape.getBody(), styles);
 				}
 
 				// These can hang off the bottom, so put a row at the top for tiling
 				if (y == 5) {
-					styles.put("transform", "translate(%s, %s) rotate(45, %s, %s)".formatted(
+					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							x * xSize / 2 - xSize / 2, dy - 11 * xSize / 2, xSize / 2, xSize / 2));
 					svgImage.addGroup(plusShape.getBody(), styles);
 				}
 
 				// Add an extra one at top-right and bottom-right, for tiling.
 				if (x == 0 && y == 0) {
-					styles.put("transform", "translate(%s, %s) rotate(45, %s, %s)".formatted(
+					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							6 * xSize / 2 - xSize / 2, dy - 6 * xSize / 2, xSize / 2, xSize / 2));
 					svgImage.addGroup(plusShape.getBody(), styles);
 				}

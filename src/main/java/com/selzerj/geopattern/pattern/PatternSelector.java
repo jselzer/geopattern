@@ -2,6 +2,7 @@ package com.selzerj.geopattern.pattern;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PatternSelector {
 
@@ -11,7 +12,7 @@ public class PatternSelector {
 	public PatternSelector(Seed seed, List<PatternType> desiredPatterns) {
 		this.seed = seed;
 		this.availablePatterns = desiredPatterns == null || desiredPatterns.isEmpty() ?
-				Arrays.stream(PatternType.values()).toList() : desiredPatterns;
+				Arrays.stream(PatternType.values()).collect(Collectors.toList()) : desiredPatterns;
 	}
 
 	public PatternType selectPattern() {

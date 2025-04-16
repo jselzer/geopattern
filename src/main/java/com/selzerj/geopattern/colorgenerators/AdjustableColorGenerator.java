@@ -23,9 +23,9 @@ public class AdjustableColorGenerator implements ColorGenerator {
 
 		float[] hsl = ColorUtils.hsbToHsl(Color.RGBtoHSB(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue(), null));
 		hsl[0] = hsl[0] - (hueOffset / 360.0f);
-		hsl[1] = Math.clamp((satOffset % 2 == 0) ?
+		hsl[1] = Math.min(1.0f, Math.max(0.0f, (satOffset % 2 == 0) ?
 				hsl[1] + ((float)satOffset / 100.0f) :
-				hsl[1] - ((float)satOffset / 100.0f), 0.0f, 1.0f);
+				hsl[1] - ((float)satOffset / 100.0f)));
 
 		float[] hsb = ColorUtils.hslToHsb(hsl);
 		return new Color(Color.HSBtoRGB(hsb[0], hsb[1], hsb[2]));
