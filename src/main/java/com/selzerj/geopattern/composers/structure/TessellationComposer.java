@@ -54,26 +54,26 @@ public class TessellationComposer extends AbstractStructureComposer {
 			styles.put("stroke-width", "1");
 
 			switch (i) {
-				case 0 -> { // all 4 corners
+				case 0:  // all 4 corners
 					svgImage.addRect(-sideLength / 2, -sideLength / 2, sideLength, sideLength, styles);
 					svgImage.addRect(tileWidth - sideLength / 2, -sideLength / 2, sideLength, sideLength, styles);
 					svgImage.addRect(-sideLength / 2, tileHeight - sideLength / 2, sideLength, sideLength, styles);
 					svgImage.addRect(tileWidth - sideLength / 2, tileHeight - sideLength / 2, sideLength, sideLength, styles);
-				}
-				case 1 -> {
+					break;
+				case 1:
 					// center / top square
 					svgImage.addRect(hexWidth / 2 + triangleHeight, hexHeight / 2, sideLength, sideLength, styles);
-				}
-				case 2 -> {
+					break;
+				case 2:
 					// side squares
 					svgImage.addRect(-sideLength / 2, tileHeight / 2 - sideLength / 2, sideLength, sideLength, styles);
 					svgImage.addRect(tileWidth - sideLength / 2, tileHeight / 2 - sideLength / 2, sideLength, sideLength, styles);
-				}
-				case 3 -> {
+					break;
+				case 3:
 					// center / bottom square
 					svgImage.addRect(hexWidth / 2 + triangleHeight, hexHeight * 1.5 + sideLength, sideLength, sideLength, styles);
-				}
-				case 4 -> {
+					break;
+				case 4:
 					// left top / bottom triangle
 					styles.put("transform", String.format("translate(%s,%s) rotate(0, %s, %s)",
 							sideLength / 2, -sideLength / 2, sideLength / 2, triangleHeight / 2));
@@ -82,8 +82,8 @@ public class TessellationComposer extends AbstractStructureComposer {
 					styles.put("transform", String.format("translate(%s,%s) rotate(0, %s, %s) scale(1, -1)",
 							sideLength / 2, tileHeight + sideLength / 2, sideLength / 2, triangleHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 5 -> {
+					break;
+				case 5:
 					// right top / bottom triangle
 					styles.put("transform", String.format("translate(%s,%s) rotate(0, %s, %s) scale(-1, 1)",
 							tileWidth - sideLength / 2, -sideLength / 2, sideLength / 2, triangleHeight / 2));
@@ -92,90 +92,90 @@ public class TessellationComposer extends AbstractStructureComposer {
 					styles.put("transform", String.format("translate(%s,%s) rotate(0, %s, %s) scale(-1, -1)",
 							tileWidth - sideLength / 2, tileHeight + sideLength / 2, sideLength / 2, triangleHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 6 -> {
+					break;
+				case 6:
 					// center / top / right triangle
 					styles.put("transform", String.format("translate(%s,%s)",
 							tileWidth / 2 + sideLength / 2, hexHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 7 -> {
+					break;
+				case 7:
 					// center / top / left triangle
 					styles.put("transform", String.format("translate(%s,%s) scale(-1, 1)",
 							tileWidth - tileWidth / 2 - sideLength / 2, hexHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 8 -> {
+					break;
+				case 8:
 					// center / bottom / right triangle
 					styles.put("transform", String.format("translate(%s,%s) scale(1, -1)",
 							tileWidth / 2 + sideLength / 2, tileHeight - hexHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 9 -> {
+					break;
+				case 9:
 					// center / bottom / left triangle
 					styles.put("transform", String.format("translate(%s,%s) scale(-1, -1)",
 							tileWidth - tileWidth / 2 - sideLength / 2, tileHeight - hexHeight / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 10 -> {
+					break;
+				case 10:
 					// left / middle triangle
 					styles.put("transform", String.format("translate(%s,%s)", sideLength / 2, tileHeight / 2 - sideLength / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 11 -> {
+					break;
+				case 11:
 					// right / middle triangle
 					styles.put("transform", String.format("translate(%s,%s) scale(-1,1)",
 							tileWidth - sideLength / 2, tileHeight / 2 - sideLength / 2));
 					svgImage.addPolyline(trianglePoints, styles);
-				}
-				case 12 -> {
+					break;
+				case 12:
 					// left / top square
 					styles.put("transform", String.format("translate(%s,%s) rotate(-30, 0, 0)",
 							sideLength / 2, sideLength / 2));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 13 -> {
+					break;
+				case 13:
 					// right / top square
 					styles.put("transform", String.format("scale(-1, 1) translate(%s, %s) rotate(-30, 0, 0)",
 							-tileWidth + sideLength / 2, sideLength / 2));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 14 -> {
+					break;
+				case 14:
 					// left / center-top square
 					styles.put("transform", String.format("translate(%s,%s) rotate(30, 0, %s)",
 							sideLength / 2, tileHeight / 2 - sideLength / 2 - sideLength, sideLength));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 15 -> {
+					break;
+				case 15:
 					// right / center-top square
 					styles.put("transform", String.format("scale(-1, 1) translate(%s, %s) rotate(30, 0, %s)",
 							-tileWidth + sideLength / 2, tileHeight / 2 - sideLength / 2 - sideLength, sideLength));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 16 -> {
+					break;
+				case 16:
 					// left / center-top square
 					styles.put("transform", String.format("scale(1, -1) translate(%s, %s) rotate(30, 0, %s)",
 							sideLength / 2, -tileHeight + tileHeight / 2 - sideLength / 2 - sideLength, sideLength));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 17 -> {
+					break;
+				case 17:
 					// right / center-bottom square
 					styles.put("transform", String.format("scale(-1, -1) translate(%s, %s) rotate(30, 0, %s)",
 							-tileWidth + sideLength / 2, -tileHeight + tileHeight / 2 - sideLength / 2 - sideLength, sideLength));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 18 -> {
+					break;
+				case 18:
 					// left / bottom square
 					styles.put("transform", String.format("scale(1, -1) translate(%s, %s) rotate(-30, 0, 0)",
 							sideLength / 2, -tileHeight + sideLength / 2));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
-				case 19 -> {
+					break;
+				case 19:
 					// right / bottom square
 					styles.put("transform", String.format("scale(-1, -1) translate(%s, %s) rotate(-30, 0, 0)",
 							-tileWidth + sideLength / 2, -tileHeight + sideLength / 2));
 					svgImage.addRect(0, 0, sideLength, sideLength, styles);
-				}
+					break;
 			}
 		}
 
