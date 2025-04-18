@@ -1,6 +1,6 @@
 package com.selzerj.geopattern.internal.colorgenerators;
 
-import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
 import lombok.AllArgsConstructor;

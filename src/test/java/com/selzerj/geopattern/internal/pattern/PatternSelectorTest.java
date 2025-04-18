@@ -1,5 +1,6 @@
 package com.selzerj.geopattern.internal.pattern;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.model.PatternType;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.params.ParameterizedTest;

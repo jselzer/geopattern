@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -28,8 +28,8 @@ public final class SineWavesComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 
 		for (int i = 0; i < 36; i++) {
 			int value = seed.getInteger(i, 1);
@@ -53,11 +53,11 @@ public final class SineWavesComposer extends AbstractStructureComposer {
 					.append(period * 1.5).append(" ").append(amplitude);
 
 			styles.put("transform", "translate(-" + period / 4 + ", " + (waveWidth * i - amplitude * 1.5) + ")");
-			svgImage.addPath(dBuilder.toString(), styles);
+			svg.addPath(dBuilder.toString(), styles);
 			styles.put("transform", "translate(-" + period / 4 + ", " + (waveWidth * i - amplitude * 1.5 + waveWidth * 36) + ")");
-			svgImage.addPath(dBuilder.toString(), styles);
+			svg.addPath(dBuilder.toString(), styles);
 		}
 
-		return svgImage;
+		return svg;
 	}
 }

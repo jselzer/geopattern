@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -25,8 +25,8 @@ public final class OverlappingRingsComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 6; y++) {
@@ -41,25 +41,25 @@ public final class OverlappingRingsComposer extends AbstractStructureComposer {
 						"style", String.format("opacity: %s; stroke-width: %spx", opacity, strokeWidth)
 				);
 
-				svgImage.addCircle(x * ringSize, y * ringSize, ringSize - strokeWidth / 2, styles);
+				svg.addCircle(x * ringSize, y * ringSize, ringSize - strokeWidth / 2, styles);
 
 				// Add an extra one at top-right, for tiling.
 				if (x == 0) {
-					svgImage.addCircle(6 * ringSize, y * ringSize, ringSize - strokeWidth / 2, styles);
+					svg.addCircle(6 * ringSize, y * ringSize, ringSize - strokeWidth / 2, styles);
 				}
 
 				if (y == 0) {
-					svgImage.addCircle(x * ringSize, 6 * ringSize, ringSize - strokeWidth / 2, styles);
+					svg.addCircle(x * ringSize, 6 * ringSize, ringSize - strokeWidth / 2, styles);
 				}
 
 				if (x == 0 && y == 0) {
-					svgImage.addCircle(6 * ringSize, 6 * ringSize, ringSize - strokeWidth / 2, styles);
+					svg.addCircle(6 * ringSize, 6 * ringSize, ringSize - strokeWidth / 2, styles);
 				}
 
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 }

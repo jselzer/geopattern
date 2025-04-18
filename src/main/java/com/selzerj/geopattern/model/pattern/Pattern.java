@@ -1,28 +1,22 @@
 package com.selzerj.geopattern.model.pattern;
 
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 import lombok.Data;
 
 @Data
 public final class Pattern {
 
-	private SvgImage background;
-	private SvgImage structure;
+	private Svg background;
+	private Svg structure;
 
 	private int height;
-
 	private int width;
 
-	public Pattern() {
-
-	}
-
 	public String toSvg() {
-		return new SvgImage(width, height)
-				// FIXME, null handling
-				.addBody(background.getBody())
-				.addBody(structure.getBody())
-				.toString();
+		return new Svg(width, height)
+				.addBody(background != null ? background.getBody() : "")
+				.addBody(structure != null ? structure.getBody() : "")
+				.getImageString();
 	}
 
 	// TODO, add Base64 encoding

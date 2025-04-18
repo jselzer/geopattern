@@ -1,4 +1,4 @@
-package com.selzerj.geopattern.internal.pattern;
+package com.selzerj.geopattern.internal;
 
 import lombok.Value;
 
@@ -6,7 +6,6 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-// FIXME, package
 @Value
 public class Seed {
 	String value;

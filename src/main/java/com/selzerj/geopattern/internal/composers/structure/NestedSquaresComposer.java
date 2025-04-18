@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -25,8 +25,8 @@ public final class NestedSquaresComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 6; y++) {
@@ -40,7 +40,7 @@ public final class NestedSquaresComposer extends AbstractStructureComposer {
 				styles.put("stroke", ColorUtils.toRgbString(fill));
 				styles.put("style", String.format("opacity: %s; stroke-width: %spx", opacity, blockSize));
 
-				svgImage.addRect(x * squareSize + x * blockSize * 2 + blockSize / 2,
+				svg.addRect(x * squareSize + x * blockSize * 2 + blockSize / 2,
 						y * squareSize + y * blockSize * 2 + blockSize / 2,
 						squareSize, squareSize, styles);
 
@@ -52,7 +52,7 @@ public final class NestedSquaresComposer extends AbstractStructureComposer {
 				styles.put("stroke", ColorUtils.toRgbString(fill));
 				styles.put("style", String.format("opacity: %s; stroke-width: %spx", opacity, blockSize));
 
-				svgImage.addRect(x * squareSize + x * blockSize * 2 + blockSize / 2 + blockSize * 2,
+				svg.addRect(x * squareSize + x * blockSize * 2 + blockSize / 2 + blockSize * 2,
 						y * squareSize + y * blockSize * 2 + blockSize / 2 + blockSize * 2,
 						blockSize * 3, blockSize * 3, styles);
 
@@ -60,6 +60,6 @@ public final class NestedSquaresComposer extends AbstractStructureComposer {
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 }

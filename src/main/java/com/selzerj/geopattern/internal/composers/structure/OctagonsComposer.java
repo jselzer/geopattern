@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -24,8 +24,8 @@ public final class OctagonsComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 		final String octagonPoints = getOctagonPoints();
 
@@ -43,12 +43,12 @@ public final class OctagonsComposer extends AbstractStructureComposer {
 						"transform", String.format("translate(%s,%s)", x * squareSize, y * squareSize)
 				);
 
-				svgImage.addPolyline(octagonPoints, style);
+				svg.addPolyline(octagonPoints, style);
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
 	private String getOctagonPoints() {

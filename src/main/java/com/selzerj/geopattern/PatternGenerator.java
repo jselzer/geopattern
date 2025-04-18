@@ -1,11 +1,11 @@
 package com.selzerj.geopattern;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternComposer;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.composers.background.SolidBackgroundComposer;
 import com.selzerj.geopattern.internal.composers.structure.StructureComposerFactory;
 import com.selzerj.geopattern.internal.pattern.PatternSelector;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.model.ColorPreset;
 import com.selzerj.geopattern.model.ColorPresetMode;
 import com.selzerj.geopattern.model.PatternType;
@@ -18,9 +18,20 @@ import java.util.List;
 
 public final class PatternGenerator {
 
-	// FIXME, should I have different type for background and structure generators?
 	private final PatternComposer backgroundComposer;
 	private final PatternComposer structureComposer;
+
+	public PatternGenerator(@NonNull String seedString) {
+		this(seedString, null, null);
+	}
+
+	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset) {
+		this(seedString, colorPreset, null);
+	}
+
+	public PatternGenerator(@NonNull String seedString, List<PatternType> desiredPatterns) {
+		this(seedString, null, desiredPatterns);
+	}
 
 	@Builder
 	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset, List<PatternType> desiredPatterns) {

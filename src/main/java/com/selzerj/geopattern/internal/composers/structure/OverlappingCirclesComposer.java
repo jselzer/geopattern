@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -22,8 +22,8 @@ public final class OverlappingCirclesComposer extends AbstractStructureComposer 
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 		for (int y = 0; y < 6; y++) {
 			for (int x = 0; x < 6; x++) {
@@ -36,27 +36,27 @@ public final class OverlappingCirclesComposer extends AbstractStructureComposer 
 						"style", String.format("opacity: %s", opacity)
 				);
 
-				svgImage.addCircle(x * radius, y * radius, radius, styles);
+				svg.addCircle(x * radius, y * radius, radius, styles);
 
 				// Add an extra one at the top-right, for tiling.
 				if (x == 0) {
-					svgImage.addCircle(6 * radius, y * radius, radius, styles);
+					svg.addCircle(6 * radius, y * radius, radius, styles);
 				}
 
             	// Add an extra row at the end that matches the first row, for tiling.
 				if (y == 0) {
-					svgImage.addCircle(x * radius, 6 * radius, radius, styles);
+					svg.addCircle(x * radius, 6 * radius, radius, styles);
 				}
 
 				// Add an extra one at bottom-right, for tiling.
 				if (x == 0 && y == 0) {
-					svgImage.addCircle(6 * radius, 6 * radius, radius, styles);
+					svg.addCircle(6 * radius, 6 * radius, radius, styles);
 				}
 
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 }

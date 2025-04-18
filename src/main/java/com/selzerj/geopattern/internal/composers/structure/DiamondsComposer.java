@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -28,8 +28,8 @@ public final class DiamondsComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 6; y++) {
@@ -51,14 +51,14 @@ public final class DiamondsComposer extends AbstractStructureComposer {
 				styles.put("transform", String.format("translate(%s,%s)",
 								(double)x * diamondWidth - diamondWidth / 2 + dx,
 								diamondHeight / 2 * (double)y - diamondHeight / 2));
-				svgImage.addPolyline(diamond, styles);
+				svg.addPolyline(diamond, styles);
 
 				// Add an extra one at top-left, for tiling.
 				if (x == 0) {
 					styles.put("transform", String.format("translate(%s,%s)",
 							(6 * diamondWidth - diamondWidth / 2 + dx),
 							diamondHeight / 2 * (double)y - diamondHeight / 2));
-					svgImage.addPolyline(diamond, styles);
+					svg.addPolyline(diamond, styles);
 				}
 
 				// Add an extra row at the end that matches the first row, for tiling.
@@ -66,7 +66,7 @@ public final class DiamondsComposer extends AbstractStructureComposer {
 					styles.put("transform", String.format("translate(%s,%s)",
 							(double)x * diamondWidth - diamondWidth / 2 + dx,
 							diamondHeight / 2 * 6 - diamondHeight / 2));
-					svgImage.addPolyline(diamond, styles);
+					svg.addPolyline(diamond, styles);
 				}
 
 				// Add an extra one at bottom-right, for tiling.
@@ -74,14 +74,14 @@ public final class DiamondsComposer extends AbstractStructureComposer {
 					styles.put("transform", String.format("translate(%s,%s)",
 							(6 * diamondWidth - diamondWidth / 2 + dx),
 							diamondHeight / 2 * 6 - diamondHeight / 2));
-					svgImage.addPolyline(diamond, styles);
+					svg.addPolyline(diamond, styles);
 				}
 
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
 	private String getDiamondPoints() {

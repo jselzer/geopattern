@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -22,25 +22,25 @@ public final class SquaresComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 
 		int i = 0;
 		for (int y = 0; y < 6; y++) {
 			for (int x = 0; x < 6; x++) {
 				final int seedValue = seed.getInteger(i++, 1);
-				createSquareAtCoords(svgImage, seedValue, x, y);
+				createSquareAtCoords(svg, seedValue, x, y);
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
-	private void createSquareAtCoords(SvgImage svgImage, int seedValue, int x, int y) {
+	private void createSquareAtCoords(Svg svg, int seedValue, int x, int y) {
 		final double opacity = opacity(seedValue);
 		final Color fillColor = fillColor(seedValue);
 
-		svgImage.addRect(x * squareSize, y * squareSize, Double.toString(squareSize), Double.toString(squareSize),
+		svg.addRect(x * squareSize, y * squareSize, Double.toString(squareSize), Double.toString(squareSize),
 				Map.of(
 						"fill", ColorUtils.toRgbString(fillColor),
 						"fill-opacity", Double.toString(opacity),

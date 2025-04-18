@@ -1,9 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -15,8 +15,8 @@ public final class PlaidComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 
 
         // horizontal stripes
@@ -31,7 +31,7 @@ public final class PlaidComposer extends AbstractStructureComposer {
 			Color fill = fillColor(val);
 			int stripeHeight = val + 5;
 
-			svgImage.addRect(0, localHeight, "100%", Double.toString(stripeHeight),
+			svg.addRect(0, localHeight, "100%", Double.toString(stripeHeight),
 					Map.of("opacity", Double.toString(opacity),
 							"fill", ColorUtils.toRgbString(fill)));
 			localHeight += stripeHeight;
@@ -50,7 +50,7 @@ public final class PlaidComposer extends AbstractStructureComposer {
 			Color fill = fillColor(val);
 			int stripeWidth = val + 5;
 
-			svgImage.addRect(localWidth, 0, Double.toString(stripeWidth), "100%",
+			svg.addRect(localWidth, 0, Double.toString(stripeWidth), "100%",
 					Map.of("opacity", Double.toString(opacity),
 							"fill", ColorUtils.toRgbString(fill)));
 			localWidth += stripeWidth;
@@ -60,6 +60,6 @@ public final class PlaidComposer extends AbstractStructureComposer {
 		this.height = localHeight;
 		this.width = localWidth;
 
-		return svgImage;
+		return svg;
 	}
 }

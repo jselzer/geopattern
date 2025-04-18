@@ -1,11 +1,11 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternComposer;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.pattern.Pattern;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 
@@ -41,5 +41,5 @@ public abstract class AbstractStructureComposer implements PatternComposer {
 		return MathUtils.map(value, 0.0, 15.0, patternPreset.getOpacityMin(), patternPreset.getOpacityMax());
 	}
 
-	protected abstract SvgImage generate();
+	protected abstract Svg generate();
 }

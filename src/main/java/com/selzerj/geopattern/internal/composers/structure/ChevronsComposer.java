@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public final class ChevronsComposer extends AbstractStructureComposer {
 
 	private final double chevronWidth;
 	private final double chevronHeight;
-	private final SvgImage chevronShape;
+	private final Svg chevronShape;
 
 	public ChevronsComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
@@ -28,22 +28,19 @@ public final class ChevronsComposer extends AbstractStructureComposer {
 		this.height = chevronWidth * 6.0 * 0.66;
 	}
 
-	private SvgImage initChevronShape(double chevronWidth, double chevronHeight) {
+	private Svg initChevronShape(double chevronWidth, double chevronHeight) {
 		final double e = chevronHeight * 0.66;
 
-		// FIXME change how we handle SvgImage - image should not be used to carry fragments of SVG
-		// FIXME, is there a better way to build a string with a bunch of doubles?
-		SvgImage chevronShape = new SvgImage();
-		chevronShape.addPolyline(String.format("0,0,%s,%s,%s,%s,0,%s,0,0",
-				chevronWidth / 2.0, chevronHeight - e, chevronWidth / 2.0, chevronHeight, e));
-		chevronShape.addPolyline(String.format("%s,%s,%s,0,%s,%s,%s,%s,%s,%s",
+		return new Svg()
+			.addPolyline(String.format("0,0,%s,%s,%s,%s,0,%s,0,0",
+				chevronWidth / 2.0, chevronHeight - e, chevronWidth / 2.0, chevronHeight, e))
+			.addPolyline(String.format("%s,%s,%s,0,%s,%s,%s,%s,%s,%s",
 				chevronWidth / 2.0, chevronHeight - e, chevronWidth, chevronWidth, e, chevronWidth / 2.0, chevronHeight, chevronWidth / 2.0, chevronHeight - e));
-		return chevronShape;
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 		for (int y = 0; y < 6; y++) {
 			for (int x = 0; x < 6; x++) {
@@ -59,17 +56,17 @@ public final class ChevronsComposer extends AbstractStructureComposer {
 				styles.put("stroke-width", "1");
 
 				styles.put("transform", String.format("translate(%s,%s)", (double)x * chevronWidth, (double)y * chevronHeight * 0.66 - chevronHeight / 2.0));
-				svgImage.addGroup(chevronShape.getBody(), styles);
+				svg.addGroup(chevronShape.getBody(), styles);
 
 				// Add an extra row at the end that matches the first row, for tiling.
 				if (y == 0) {
 					styles.put("transform", String.format("translate(%s,%s)", (double)x * chevronWidth, 6.0 * chevronHeight * 0.66 - chevronHeight / 2.0));
-					svgImage.addGroup(chevronShape.getBody(), styles);
+					svg.addGroup(chevronShape.getBody(), styles);
 				}
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 }

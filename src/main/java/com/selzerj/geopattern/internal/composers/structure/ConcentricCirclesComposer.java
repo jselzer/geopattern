@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -25,34 +25,34 @@ public final class ConcentricCirclesComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 6; y++) {
 			for (int x = 0; x < 6; x++) {
-				drawBigCircle(svgImage, i, x, y);
-				drawSmallCircle(svgImage, i, x, y);
+				drawBigCircle(svg, i, x, y);
+				drawSmallCircle(svg, i, x, y);
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
-	private void drawSmallCircle(SvgImage svgImage, int i, double x, double y) {
+	private void drawSmallCircle(Svg svg, int i, double x, double y) {
 		int val = seed.getInteger(39 - i, 1);
 		double opacity = opacity(val);
 		Color fill = fillColor(val);
 
-		svgImage.addCircle(x * ringSize + x * strokeWidth + (ringSize + strokeWidth) / 2.0,
+		svg.addCircle(x * ringSize + x * strokeWidth + (ringSize + strokeWidth) / 2.0,
 				y * ringSize + y * strokeWidth + (ringSize + strokeWidth) / 2.0,
 				ringSize / 4,
 				Map.of("fill", ColorUtils.toRgbString(fill),
 						"fill-opacity", Double.toString(opacity)));
 	}
 
-	private void drawBigCircle(SvgImage svgImage, int i, double x, double y) {
+	private void drawBigCircle(Svg svg, int i, double x, double y) {
 		int val = seed.getInteger(i, 1);
 		double opacity = opacity(val);
 		Color fill = fillColor(val);
@@ -63,7 +63,7 @@ public final class ConcentricCirclesComposer extends AbstractStructureComposer {
 				"style", String.format("opacity: %s; stroke-width: %spx", opacity, strokeWidth)
 		);
 
-		svgImage.addCircle(x * ringSize + x * strokeWidth + (ringSize + strokeWidth) / 2.0,
+		svg.addCircle(x * ringSize + x * strokeWidth + (ringSize + strokeWidth) / 2.0,
 				y * ringSize + y * strokeWidth + (ringSize + strokeWidth) / 2.0,
 				ringSize / 2,
 				styles);

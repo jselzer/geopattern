@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -31,8 +31,8 @@ public final class HexagonsComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 6; y++) {
@@ -52,14 +52,14 @@ public final class HexagonsComposer extends AbstractStructureComposer {
 				styles.put("transform", String.format("translate(%s, %s)",
 						(double)x * sideLength * 1.5 - hexWidth / 2,
 						dy - hexHeight / 2));
-				svgImage.addPolyline(hexPoints, styles);
+				svg.addPolyline(hexPoints, styles);
 
 				// Add an extra one at top-right, for tiling.
 				if (x == 0) {
 					styles.put("transform", String.format("translate(%s, %s)",
 							(6 * sideLength * 1.5 - hexWidth / 2),
 							dy - hexHeight / 2));
-					svgImage.addPolyline(hexPoints, styles);
+					svg.addPolyline(hexPoints, styles);
 				}
 
 				// Add an extra row at the end that matches the first row, for tiling.
@@ -68,7 +68,7 @@ public final class HexagonsComposer extends AbstractStructureComposer {
 					styles.put("transform", String.format("translate(%s, %s)",
 							(double)x * sideLength * 1.5 - hexWidth / 2,
 							dy - hexHeight / 2));
-					svgImage.addPolyline(hexPoints, styles);
+					svg.addPolyline(hexPoints, styles);
 				}
 
             	// Add an extra one at bottom-right, for tiling.
@@ -76,14 +76,14 @@ public final class HexagonsComposer extends AbstractStructureComposer {
 					styles.put("transform", String.format("translate(%s, %s)",
 							(6 * sideLength * 1.5 - hexWidth / 2),
 							(5 * hexHeight + hexHeight / 2)));
-					svgImage.addPolyline(hexPoints, styles);
+					svg.addPolyline(hexPoints, styles);
 				}
 
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
 	private String getHexagonPoints(double sideLength) {

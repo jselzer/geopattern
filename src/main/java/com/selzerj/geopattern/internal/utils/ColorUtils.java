@@ -11,7 +11,6 @@ public final class ColorUtils {
 		return String.format("rgb(%d,%d,%d)", color.getRed(), color.getGreen(), color.getBlue());
 	}
 
-	// FIXME, clean up and add tests
 	public float[] hsbToHsl(float[] hsb) {
 		float[] hsl = new float[3];
 		hsl[2] = hsb[2] * (1.0f - hsb[1] / 2.0f);

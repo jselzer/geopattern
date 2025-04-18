@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -26,25 +26,25 @@ public final class MosaicSquaresComposer extends AbstractStructureComposer {
 
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 4; y++) {
 			for (int x = 0; x < 4; x++) {
 				if (x % 2 == 0) {
 					if (y % 2 == 0) {
-						drawOuterMosaicTile(svgImage, x * triangleSize * 2, y * triangleSize * 2,
+						drawOuterMosaicTile(svg, x * triangleSize * 2, y * triangleSize * 2,
 								triangleSize, seed.getInteger(i, 1));
 					} else {
-						drawInnerMosaicTile(svgImage, x * triangleSize * 2, y * triangleSize * 2,
+						drawInnerMosaicTile(svg, x * triangleSize * 2, y * triangleSize * 2,
 								triangleSize, seed.getInteger(i, 1), seed.getInteger(i + 1, 1));
 					}
 				} else if (y % 2 == 0) {
-					drawInnerMosaicTile(svgImage, x * triangleSize * 2, y * triangleSize * 2, triangleSize,
+					drawInnerMosaicTile(svg, x * triangleSize * 2, y * triangleSize * 2, triangleSize,
 							seed.getInteger(i, 1), seed.getInteger(i + 1, 1));
 				} else {
-					drawOuterMosaicTile(svgImage, x * triangleSize * 2, y * triangleSize * 2, triangleSize,
+					drawOuterMosaicTile(svg, x * triangleSize * 2, y * triangleSize * 2, triangleSize,
 							seed.getInteger(i, 1));
 				}
 
@@ -52,10 +52,10 @@ public final class MosaicSquaresComposer extends AbstractStructureComposer {
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
-	private void drawInnerMosaicTile(SvgImage svgImage, double x, double y, double triangleSize, int val1, int val2) {
+	private void drawInnerMosaicTile(Svg svg, double x, double y, double triangleSize, int val1, int val2) {
 		String triangle = getTrianglePoints(triangleSize);
 		double opacity = opacity(val1);
 		Color fill = fillColor(val1);
@@ -66,10 +66,10 @@ public final class MosaicSquaresComposer extends AbstractStructureComposer {
 		styles.put("fill", ColorUtils.toRgbString(fill));
 
 		styles.put("transform", String.format("translate(%s,%s) scale(-1, 1)", x + triangleSize, y));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 
 		styles.put("transform", String.format("translate(%s,%s) scale(1, -1)", x + triangleSize, y + triangleSize * 2));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 
 		opacity = opacity(val2);
 		fill = fillColor(val2);
@@ -77,13 +77,13 @@ public final class MosaicSquaresComposer extends AbstractStructureComposer {
 		styles.put("fill-opacity", Double.toString(opacity));
 
 		styles.put("transform", String.format("translate(%s,%s) scale(-1, -1)", x + triangleSize, y + triangleSize * 2));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 
 		styles.put("transform", String.format("translate(%s,%s) scale(1, 1)", x + triangleSize, y));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 	}
 
-	private void drawOuterMosaicTile(SvgImage svgImage, double x, double y, double triangleSize, int val) {
+	private void drawOuterMosaicTile(Svg svg, double x, double y, double triangleSize, int val) {
 		final double opacity = opacity(val);
 		final Color fill = fillColor(val);
 		final String triangle = getTrianglePoints(triangleSize);
@@ -95,16 +95,16 @@ public final class MosaicSquaresComposer extends AbstractStructureComposer {
 		styles.put("fill", ColorUtils.toRgbString(fill));
 
 		styles.put("transform", String.format("translate(%s,%s) scale(1, -1)", x, y + triangleSize));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 
 		styles.put("transform", String.format("translate(%s,%s) scale(-1, -1)", x + triangleSize * 2, y + triangleSize));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 
 		styles.put("transform", String.format("translate(%s,%s) scale(1, 1)", x, y + triangleSize));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 
 		styles.put("transform", String.format("translate(%s,%s) scale(-1, 1)", x + triangleSize * 2, y + triangleSize));
-		svgImage.addPolyline(triangle, styles);
+		svg.addPolyline(triangle, styles);
 	}
 
 	private String getTrianglePoints(double sideLength) {

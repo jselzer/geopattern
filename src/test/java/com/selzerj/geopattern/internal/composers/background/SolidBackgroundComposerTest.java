@@ -1,6 +1,6 @@
 package com.selzerj.geopattern.internal.composers.background;
 
-import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.model.ColorPreset;
 import com.selzerj.geopattern.model.ColorPresetMode;
 import com.selzerj.geopattern.model.pattern.Pattern;

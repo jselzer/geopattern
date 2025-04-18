@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -29,8 +29,8 @@ public final class TrianglesComposer  extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 		for (int y = 0; y < 6; y++) {
 			for (int x = 0; x < 6; x++) {
@@ -52,21 +52,21 @@ public final class TrianglesComposer  extends AbstractStructureComposer {
 				styles.put("transform", String.format("translate(%s, %s) rotate(%s, %s, %s)",
 						x * sideLength * 0.5 - sideLength / 2, triangleHeight * y,
 						rotation, sideLength / 2, triangleHeight / 2));
-				svgImage.addPolyline(trianglePoints, styles);
+				svg.addPolyline(trianglePoints, styles);
 
 				// Add an extra one at the top-right, for tiling
 				if (x == 0) {
 					styles.put("transform", String.format("translate(%s, %s) rotate(%s, %s, %s)",
 							6 * sideLength * 0.5 - sideLength / 2, triangleHeight * y,
 							rotation, sideLength / 2, triangleHeight / 2));
-					svgImage.addPolyline(trianglePoints, styles);
+					svg.addPolyline(trianglePoints, styles);
 				}
 
 				i++;
 			}
 		}
 
-		return svgImage;
+		return svg;
 	}
 
 	private String getTrianglePoints(double sideLength, double triangleHeight) {

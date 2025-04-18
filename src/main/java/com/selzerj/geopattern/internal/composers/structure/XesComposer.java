@@ -1,10 +1,10 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
+import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
-import com.selzerj.geopattern.internal.pattern.Seed;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.svg.SvgImage;
+import com.selzerj.geopattern.model.svg.Svg;
 
 import java.awt.Color;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import java.util.Map;
 
 public final class XesComposer extends AbstractStructureComposer {
 
-	private final SvgImage plusShape;
+	private final Svg plusShape;
 	private final double xSize;
 
 
@@ -27,8 +27,8 @@ public final class XesComposer extends AbstractStructureComposer {
 	}
 
 	@Override
-	protected SvgImage generate() {
-		SvgImage svgImage = new SvgImage();
+	protected Svg generate() {
+		Svg svg = new Svg();
 		int i = 0;
 
 		for (int y = 0; y < 6; y++) {
@@ -46,13 +46,13 @@ public final class XesComposer extends AbstractStructureComposer {
 
 				styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 						x * xSize / 2 - xSize / 2, dy - y * xSize / 2, xSize / 2, xSize / 2));
-				svgImage.addGroup(plusShape.getBody(), styles);
+				svg.addGroup(plusShape.getBody(), styles);
 
 				// Add an extra column on the right for tiling.
 				if (x == 0) {
 					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							6 * xSize / 2 - xSize / 2, dy - y * xSize / 2, xSize / 2, xSize / 2));
-					svgImage.addGroup(plusShape.getBody(), styles);
+					svg.addGroup(plusShape.getBody(), styles);
 				}
 
 				// Add an extra row on the bottom that matches the first row, for tiling
@@ -62,34 +62,32 @@ public final class XesComposer extends AbstractStructureComposer {
 							6 * xSize - xSize / 2 + xSize / 4;
 					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							x * xSize / 2 - xSize / 2, dy - 6 * xSize / 2, xSize / 2, xSize / 2));
-					svgImage.addGroup(plusShape.getBody(), styles);
+					svg.addGroup(plusShape.getBody(), styles);
 				}
 
 				// These can hang off the bottom, so put a row at the top for tiling
 				if (y == 5) {
 					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							x * xSize / 2 - xSize / 2, dy - 11 * xSize / 2, xSize / 2, xSize / 2));
-					svgImage.addGroup(plusShape.getBody(), styles);
+					svg.addGroup(plusShape.getBody(), styles);
 				}
 
 				// Add an extra one at top-right and bottom-right, for tiling.
 				if (x == 0 && y == 0) {
 					styles.put("transform", String.format("translate(%s, %s) rotate(45, %s, %s)",
 							6 * xSize / 2 - xSize / 2, dy - 6 * xSize / 2, xSize / 2, xSize / 2));
-					svgImage.addGroup(plusShape.getBody(), styles);
+					svg.addGroup(plusShape.getBody(), styles);
 				}
 
 				i++;
 			}
 		}
 
-
-		return svgImage;
+		return svg;
 	}
 
-	// FIXME, duplication with PlusSignsComposer
-	private SvgImage getPlusShape(double squareSize) {
-		return new SvgImage()
+	private Svg getPlusShape(double squareSize) {
+		return new Svg()
 				.addRect(squareSize, 0, squareSize, squareSize * 3)
 				.addRect(0, squareSize, squareSize * 3, squareSize);
 	}
