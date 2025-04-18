@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -18,9 +19,9 @@ public final class SineWavesComposer extends AbstractStructureComposer {
 	public SineWavesComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.period = Math.floor(this.map(this.seed.getInteger(0, 1), 0, 15, 100, 400));
-		this.amplitude = Math.floor(this.map(this.seed.getInteger(1, 1), 0, 15, 30, 100));
-		this.waveWidth = Math.floor(this.map(this.seed.getInteger(2, 1), 0, 15, 3, 30));
+		this.period = Math.floor(MathUtils.map(this.seed.getInteger(0, 1), 0, 15, 100, 400));
+		this.amplitude = Math.floor(MathUtils.map(this.seed.getInteger(1, 1), 0, 15, 30, 100));
+		this.waveWidth = Math.floor(MathUtils.map(this.seed.getInteger(2, 1), 0, 15, 3, 30));
 
 		this.width = this.period;
 		this.height = this.waveWidth * 36;

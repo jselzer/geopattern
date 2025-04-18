@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -21,7 +22,7 @@ public final class HexagonsComposer extends AbstractStructureComposer {
 		super(seed, patternPreset);
 
 		double scale = seed.getInteger(0, 1);
-		this.sideLength = map(scale, 0, 15, 8, 60);
+		this.sideLength = MathUtils.map(scale, 0, 15, 8, 60);
 		this.hexHeight = sideLength * Math.sqrt(3);
 		this.hexWidth = sideLength * 2;
 

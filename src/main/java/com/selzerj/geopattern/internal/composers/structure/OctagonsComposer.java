@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -17,7 +18,7 @@ public final class OctagonsComposer extends AbstractStructureComposer {
 	public OctagonsComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 60);
+		this.squareSize = MathUtils.map(seed.getInteger(0, 1), 0, 15, 10, 60);
 
 		this.width = this.height = squareSize * 6.0;
 	}

@@ -1,11 +1,11 @@
 package com.selzerj.geopattern.internal.composers.background;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.colorgenerators.AdjustableColorGenerator;
 import com.selzerj.geopattern.internal.colorgenerators.ColorGenerator;
 import com.selzerj.geopattern.internal.colorgenerators.FixedColorGenerator;
 import com.selzerj.geopattern.internal.composers.PatternComposer;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.model.ColorPreset;
 import com.selzerj.geopattern.model.ColorPresetMode;
 import com.selzerj.geopattern.model.pattern.Pattern;

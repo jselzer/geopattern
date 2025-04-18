@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -20,7 +21,7 @@ public final class TrianglesComposer  extends AbstractStructureComposer {
 		super(seed, patternPreset);
 
 		int scale = seed.getInteger(0, 1);
-		this.sideLength = map(scale, 0, 15, 15, 80);
+		this.sideLength = MathUtils.map(scale, 0, 15, 15, 80);
 		this.triangleHeight = sideLength / 2 * Math.sqrt(3);
 
 		this.width = sideLength * 3;

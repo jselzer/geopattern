@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -17,7 +18,7 @@ public final class NestedSquaresComposer extends AbstractStructureComposer {
 	public NestedSquaresComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.blockSize = map(seed.getInteger(0, 1), 0, 15, 4, 12);
+		this.blockSize = MathUtils.map(seed.getInteger(0, 1), 0, 15, 4, 12);
 		this.squareSize = blockSize * 7.0;
 
 		this.width = this.height = (squareSize + blockSize) * 6.0 + blockSize * 6;

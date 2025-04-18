@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -19,8 +20,8 @@ public final class DiamondsComposer extends AbstractStructureComposer {
 	public DiamondsComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		this.diamondWidth = map(seed.getInteger(0, 1), 0, 15, 10, 50);
-		this.diamondHeight = map(seed.getInteger(1, 1), 0, 15, 10, 50);
+		this.diamondWidth = MathUtils.map(seed.getInteger(0, 1), 0, 15, 10, 50);
+		this.diamondHeight = MathUtils.map(seed.getInteger(1, 1), 0, 15, 10, 50);
 
 		this.height = diamondHeight * 3;
 		this.width = diamondWidth * 6;

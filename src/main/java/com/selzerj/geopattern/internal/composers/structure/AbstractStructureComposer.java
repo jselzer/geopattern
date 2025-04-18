@@ -3,6 +3,7 @@ package com.selzerj.geopattern.internal.composers.structure;
 import com.selzerj.geopattern.internal.composers.PatternComposer;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.pattern.Pattern;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
@@ -37,15 +38,7 @@ public abstract class AbstractStructureComposer implements PatternComposer {
 	}
 
 	protected double opacity(int value) {
-		return map(value, 0.0, 15.0, patternPreset.getOpacityMin(), patternPreset.getOpacityMax());
-	}
-
-	// FIXME, code duplication with AdjustableColorGenerator map method
-	protected double map(double value, double inputMin, double inputMax, double outputMin, double outputMax) {
-		double inputRange = inputMax - inputMin;
-		double outputRange = outputMax - outputMin;
-
-		return ((value - inputMin) * outputRange / inputRange) + outputMin;
+		return MathUtils.map(value, 0.0, 15.0, patternPreset.getOpacityMin(), patternPreset.getOpacityMax());
 	}
 
 	protected abstract SvgImage generate();

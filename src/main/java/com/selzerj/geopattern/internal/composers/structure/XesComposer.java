@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -18,7 +19,7 @@ public final class XesComposer extends AbstractStructureComposer {
 	public XesComposer(Seed seed, PatternPreset patternPreset) {
 		super(seed, patternPreset);
 
-		double squareSize = map(seed.getInteger(0, 1), 0, 15, 10, 25);
+		double squareSize = MathUtils.map(seed.getInteger(0, 1), 0, 15, 10, 25);
 		this.plusShape = getPlusShape(squareSize);
 		this.xSize = squareSize * 3 * 0.943;
 

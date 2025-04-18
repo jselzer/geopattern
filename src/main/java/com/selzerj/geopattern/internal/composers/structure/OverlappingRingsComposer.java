@@ -1,8 +1,9 @@
 package com.selzerj.geopattern.internal.composers.structure;
 
-import com.selzerj.geopattern.internal.color.ColorUtils;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.internal.utils.ColorUtils;
+import com.selzerj.geopattern.internal.utils.MathUtils;
 import com.selzerj.geopattern.model.svg.SvgImage;
 
 import java.awt.Color;
@@ -17,7 +18,7 @@ public final class OverlappingRingsComposer extends AbstractStructureComposer {
 		super(seed, patternPreset);
 
 		int scale = seed.getInteger(0, 1);
-		this.ringSize = map(scale, 0, 15, 10, 60);
+		this.ringSize = MathUtils.map(scale, 0, 15, 10, 60);
 		this.strokeWidth = ringSize / 4;
 		this.width = ringSize * 6;
 		this.height = ringSize * 6;

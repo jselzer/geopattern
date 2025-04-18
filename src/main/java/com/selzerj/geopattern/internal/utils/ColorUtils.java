@@ -1,4 +1,4 @@
-package com.selzerj.geopattern.internal.color;
+package com.selzerj.geopattern.internal.utils;
 
 import lombok.experimental.UtilityClass;
 
