@@ -1,6 +1,6 @@
 package com.selzerj.geopattern;
 
-import com.selzerj.geopattern.pattern.Pattern;
+import com.selzerj.geopattern.model.pattern.Pattern;
 
 import java.io.File;
 import java.io.FileWriter;

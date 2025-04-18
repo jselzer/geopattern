@@ -1,7 +1,7 @@
 package com.selzerj.geopattern;
 
-import com.selzerj.geopattern.pattern.Pattern;
-import com.selzerj.geopattern.pattern.PatternType;
+import com.selzerj.geopattern.model.PatternType;
+import com.selzerj.geopattern.model.pattern.Pattern;
 import com.selzerj.geopattern.utils.ResourceLoader;
 import com.selzerj.geopattern.utils.SvgUtils;
 import org.junit.jupiter.params.ParameterizedTest;

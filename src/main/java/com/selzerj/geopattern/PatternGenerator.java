@@ -1,23 +1,22 @@
 package com.selzerj.geopattern;
 
-import com.selzerj.geopattern.color.ColorPreset;
-import com.selzerj.geopattern.color.ColorPresetMode;
-import com.selzerj.geopattern.composers.PatternComposer;
-import com.selzerj.geopattern.composers.PatternPreset;
-import com.selzerj.geopattern.composers.background.SolidBackgroundComposer;
-import com.selzerj.geopattern.composers.structure.StructureComposerFactory;
-import com.selzerj.geopattern.pattern.Pattern;
-import com.selzerj.geopattern.pattern.PatternSelector;
-import com.selzerj.geopattern.pattern.PatternType;
-import com.selzerj.geopattern.pattern.Seed;
+import com.selzerj.geopattern.internal.composers.PatternComposer;
+import com.selzerj.geopattern.internal.composers.PatternPreset;
+import com.selzerj.geopattern.internal.composers.background.SolidBackgroundComposer;
+import com.selzerj.geopattern.internal.composers.structure.StructureComposerFactory;
+import com.selzerj.geopattern.internal.pattern.PatternSelector;
+import com.selzerj.geopattern.internal.pattern.Seed;
+import com.selzerj.geopattern.model.ColorPreset;
+import com.selzerj.geopattern.model.ColorPresetMode;
+import com.selzerj.geopattern.model.PatternType;
+import com.selzerj.geopattern.model.pattern.Pattern;
 import lombok.Builder;
 import lombok.NonNull;
 
 import java.awt.Color;
 import java.util.List;
 
-public class PatternGenerator {
-
+public final class PatternGenerator {
 
 	// FIXME, should I have different type for background and structure generators?
 	private final PatternComposer backgroundComposer;
@@ -25,7 +24,6 @@ public class PatternGenerator {
 
 	@Builder
 	public PatternGenerator(@NonNull String seedString, ColorPreset colorPreset, List<PatternType> desiredPatterns) {
-		// FIXME, need to finish porting all the logic in this method
 		Seed seed = new Seed(seedString);
 
 		if (colorPreset == null) {
