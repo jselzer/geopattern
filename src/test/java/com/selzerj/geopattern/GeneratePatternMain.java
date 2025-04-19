@@ -2,23 +2,22 @@ package com.selzerj.geopattern;
 
 import com.selzerj.geopattern.model.FixedColorPreset;
 import com.selzerj.geopattern.model.Pattern;
+import com.selzerj.geopattern.model.PatternType;
 
 import java.awt.Color;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 
 public class GeneratePatternMain {
 	public static void main(String[] args) {
-
-
-//		PatternGenerator patternGenerator = PatternGenerator.builder()
-//				.seedString("test")
-//				.build();
-//		Pattern pattern = patternGenerator.generate();
-
-		Pattern pattern = new PatternGenerator("seed string", new FixedColorPreset(new Color(255, 30, 90))).generate();
-
+		PatternGenerator patternGenerator = PatternGenerator.builder()
+				.seedString("test")
+				.colorPreset(new FixedColorPreset(new Color(150, 40, 96)))
+				.desiredPatterns(List.of(PatternType.CHEVRONS))
+				.build();
+		Pattern pattern = patternGenerator.generate();
 
 		File file = new File("temp/temp.svg");
 		file.getParentFile().mkdirs();
