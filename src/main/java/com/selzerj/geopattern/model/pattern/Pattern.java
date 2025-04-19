@@ -3,6 +3,8 @@ package com.selzerj.geopattern.model.pattern;
 import com.selzerj.geopattern.model.svg.Svg;
 import lombok.Data;
 
+import java.util.Base64;
+
 @Data
 public final class Pattern {
 
@@ -19,5 +21,7 @@ public final class Pattern {
 				.getImageString();
 	}
 
-	// TODO, add Base64 encoding
+	public String toBase64() {
+		return Base64.getEncoder().encodeToString(toSvg().getBytes());
+	}
 }

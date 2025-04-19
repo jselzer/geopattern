@@ -4,6 +4,7 @@ import com.selzerj.geopattern.model.PatternType;
 import com.selzerj.geopattern.model.pattern.Pattern;
 import com.selzerj.geopattern.utils.ResourceLoader;
 import com.selzerj.geopattern.utils.SvgUtils;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PatternGeneratorTest {
 
@@ -29,6 +31,16 @@ public class PatternGeneratorTest {
 		byte[] actual = SvgUtils.convertToBufferedImage(pattern.toSvg());
 
 		assertArrayEquals(expected, actual);
+	}
+
+	@Test
+	void testBase64Encoding_shouldWork() {
+		PatternGenerator patternGenerator = PatternGenerator.builder()
+			.seedString(SEED_STRING)
+			.desiredPatterns(List.of(PatternType.CHEVRONS))
+			.build();
+		Pattern pattern = patternGenerator.generate();
+		assertTrue(pattern.toBase64().startsWith("PHN2ZyB4bWxuc"));
 	}
 
 	private static Stream<Arguments> providePatternsAndFixtures() {
