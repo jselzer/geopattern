@@ -5,6 +5,10 @@ import lombok.Getter;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * The Svg class is used for constructing SVG (Scalable Vector Graphics)
+ * strings that can represent vector graphics.
+ */
 public final class Svg {
 
 	private int width;
@@ -26,6 +30,12 @@ public final class Svg {
 		this.height = height;
 	}
 
+	/**
+	 * Generates a complete SVG (Scalable Vector Graphics) string representation.
+	 *
+	 * @return A string representing the SVG document, constructed with the proper
+	 *         header, body, and closing tag.
+	 */
 	public String getImageString() {
 		return getSvgHeader() + body + getSvgCloser();
 	}
@@ -71,13 +81,10 @@ public final class Svg {
 		return this;
 	}
 
-
-
 	public Svg addBody(String value) {
 		body += value;
 		return this;
 	}
-
 
 	private String writeArgs(Map<String, String> args) {
 		return args.entrySet().stream()
