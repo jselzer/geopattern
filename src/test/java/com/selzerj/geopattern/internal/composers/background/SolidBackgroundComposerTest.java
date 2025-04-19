@@ -1,9 +1,10 @@
 package com.selzerj.geopattern.internal.composers.background;
 
 import com.selzerj.geopattern.internal.Seed;
+import com.selzerj.geopattern.model.AdjustableColorPreset;
 import com.selzerj.geopattern.model.ColorPreset;
-import com.selzerj.geopattern.model.ColorPresetMode;
-import com.selzerj.geopattern.model.pattern.Pattern;
+import com.selzerj.geopattern.model.FixedColorPreset;
+import com.selzerj.geopattern.model.Pattern;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -26,7 +27,7 @@ public class SolidBackgroundComposerTest {
 
 	@Test
 	public void testComposeWithFixedColor_shouldReturnCorrectColor() {
-		ColorPreset preset = new ColorPreset(Color.PINK, ColorPresetMode.FIXED);
+		ColorPreset preset = new FixedColorPreset(Color.PINK);
 		SolidBackgroundComposer composer = new SolidBackgroundComposer(mockSeed, preset);
 
 		Pattern result = new Pattern();
@@ -39,7 +40,7 @@ public class SolidBackgroundComposerTest {
 
 	@Test
 	public void testComposeWithAdjustableColor_shouldReturnCorrectColor() {
-		ColorPreset preset = new ColorPreset(Color.MAGENTA, ColorPresetMode.ADJUSTABLE);
+		ColorPreset preset = new AdjustableColorPreset(Color.MAGENTA);
 		SolidBackgroundComposer composer = new SolidBackgroundComposer(mockSeed, preset);
 
 		Pattern result = new Pattern();

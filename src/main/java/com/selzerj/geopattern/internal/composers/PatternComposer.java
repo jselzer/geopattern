@@ -1,6 +1,6 @@
 package com.selzerj.geopattern.internal.composers;
 
-import com.selzerj.geopattern.model.pattern.Pattern;
+import com.selzerj.geopattern.model.Pattern;
 
 public interface PatternComposer {
 

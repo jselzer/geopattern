@@ -6,10 +6,10 @@ import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.composers.background.SolidBackgroundComposer;
 import com.selzerj.geopattern.internal.composers.structure.StructureComposerFactory;
 import com.selzerj.geopattern.internal.pattern.PatternSelector;
+import com.selzerj.geopattern.model.AdjustableColorPreset;
 import com.selzerj.geopattern.model.ColorPreset;
-import com.selzerj.geopattern.model.ColorPresetMode;
+import com.selzerj.geopattern.model.Pattern;
 import com.selzerj.geopattern.model.PatternType;
-import com.selzerj.geopattern.model.pattern.Pattern;
 import lombok.Builder;
 import lombok.NonNull;
 
@@ -38,7 +38,7 @@ public final class PatternGenerator {
 		Seed seed = new Seed(seedString);
 
 		if (colorPreset == null) {
-			colorPreset = new ColorPreset(new Color(147, 60, 60), ColorPresetMode.ADJUSTABLE);
+			colorPreset = new AdjustableColorPreset(new Color(147, 60, 60));
 		}
 		backgroundComposer = new SolidBackgroundComposer(seed, colorPreset);
 

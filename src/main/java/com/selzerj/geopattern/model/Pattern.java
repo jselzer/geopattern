@@ -1,6 +1,5 @@
-package com.selzerj.geopattern.model.pattern;
+package com.selzerj.geopattern.model;
 
-import com.selzerj.geopattern.model.svg.Svg;
 import lombok.Data;
 
 import java.util.Base64;

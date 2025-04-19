@@ -4,8 +4,8 @@ import com.selzerj.geopattern.internal.Seed;
 import com.selzerj.geopattern.internal.composers.PatternComposer;
 import com.selzerj.geopattern.internal.composers.PatternPreset;
 import com.selzerj.geopattern.internal.utils.MathUtils;
-import com.selzerj.geopattern.model.pattern.Pattern;
-import com.selzerj.geopattern.model.svg.Svg;
+import com.selzerj.geopattern.model.Pattern;
+import com.selzerj.geopattern.model.Svg;
 
 import java.awt.Color;
 

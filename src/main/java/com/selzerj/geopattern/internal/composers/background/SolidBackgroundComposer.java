@@ -7,9 +7,9 @@ import com.selzerj.geopattern.internal.colorgenerators.FixedColorGenerator;
 import com.selzerj.geopattern.internal.composers.PatternComposer;
 import com.selzerj.geopattern.internal.utils.ColorUtils;
 import com.selzerj.geopattern.model.ColorPreset;
-import com.selzerj.geopattern.model.ColorPresetMode;
-import com.selzerj.geopattern.model.pattern.Pattern;
-import com.selzerj.geopattern.model.svg.Svg;
+import com.selzerj.geopattern.model.FixedColorPreset;
+import com.selzerj.geopattern.model.Pattern;
+import com.selzerj.geopattern.model.Svg;
 
 import java.awt.Color;
 import java.util.Map;
@@ -30,7 +30,7 @@ public final class SolidBackgroundComposer implements PatternComposer {
 	}
 
 	private Color initBackgroundColor(ColorPreset colorPreset, Seed seed) {
-		final ColorGenerator colorGenerator = colorPreset.getMode() == ColorPresetMode.FIXED ?
+		final ColorGenerator colorGenerator = colorPreset instanceof FixedColorPreset ?
 				new FixedColorGenerator(colorPreset.getColor()) :
 				new AdjustableColorGenerator(colorPreset.getColor(), seed);
 
