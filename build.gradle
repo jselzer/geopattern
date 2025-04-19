@@ -30,11 +30,9 @@ dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testImplementation 'org.mockito:mockito-core:5.16.0'
-    // todo: convert fixture svg and my svg both to png.  compare pngs for equality.  Or just compare svgs?
     testImplementation 'org.apache.xmlgraphics:batik-transcoder:1.18'
     testImplementation 'commons-io:commons-io:2.18.0'
     testImplementation 'org.apache.xmlgraphics:batik-codec:1.18'
-//    testImplementation 'commons-codec:commons-codec:1.18'
 }
 
 test {
