@@ -2,7 +2,7 @@
 
 
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE.txt)
 
 ---
 
@@ -69,7 +69,7 @@ To construct a pattern using a Builder:
 ```java
 PatternGenerator patternGenerator = PatternGenerator.builder()
 				.seedString("seed string")
-				.colorPreset(new FixedColorPreset(new Color(255, 40 96)))
+				.colorPreset(new FixedColorPreset(new Color(255, 40, 96)))
 				.desiredPatterns(List.of(PatternType.CHEVRONS))
 				.build();
 ```
