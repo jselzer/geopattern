@@ -18,7 +18,6 @@ java {
     targetCompatibility = "11"
 }
 
-
 mavenPublishing {
     configure(new JavaLibrary(new JavadocJar.Javadoc(), true))
 }
@@ -27,6 +26,8 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
     signAllPublications()
 }
+
+javadoc.options.addStringOption('Xdoclint:none')
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')

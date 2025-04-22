@@ -19,6 +19,9 @@ import io.github.jselzer.geopattern.internal.composers.structure.TrianglesCompos
 import io.github.jselzer.geopattern.internal.composers.structure.XesComposer;
 import lombok.Getter;
 
+/**
+ * The PatternType enum represents the available patterns.
+ */
 @Getter
 public enum PatternType {
 	CHEVRONS(ChevronsComposer.class),
