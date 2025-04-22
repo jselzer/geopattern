@@ -1,29 +1,31 @@
+import com.vanniktech.maven.publish.JavaLibrary
+import com.vanniktech.maven.publish.JavadocJar
+import com.vanniktech.maven.publish.SonatypeHost
+
 plugins {
     id 'java-library'
-    id 'maven-publish'
+    id "com.vanniktech.maven.publish" version "0.31.0"
     id 'io.freefair.lombok' version '8.13'
 }
-
-group = 'com.selzerj'
-version = '0.0.1-SNAPSHOT'
 
 repositories {
     mavenCentral()
     mavenLocal()
 }
 
-publishing {
-    publications {
-        maven(MavenPublication) {
-            artifactId = 'geopattern'
-            from components.java
-        }
-    }
-}
-
 java {
     sourceCompatibility = "11"
     targetCompatibility = "11"
+}
+
+
+mavenPublishing {
+    configure(new JavaLibrary(new JavadocJar.Javadoc(), true))
+}
+
+mavenPublishing {
+    publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL)
+    signAllPublications()
 }
 
 dependencies {
