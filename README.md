@@ -29,7 +29,7 @@ Alternatively, you can pull it from the central Maven repositories:
 
 ```xml
 <dependency>
-  <groupId>com.selzerj</groupId>
+  <groupId>io.github.jselzer</groupId>
   <artifactId>geopattern</artifactId>
   <version>1.0.0</version>
 </dependency>
