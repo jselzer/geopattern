@@ -9,6 +9,8 @@
 Generate beautiful tiling SVG patterns from a string.
 This is a Java port of the original [Ruby library](https://github.com/jasonlong/geo_pattern) by Jason Long.
 
+For an example of the library in use, see https://github.com/jselzer/geopattern-swing.
+
 ## 📝 Table of Contents
 - [About](#about)
 - [Getting Started](#getting_started)
